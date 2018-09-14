@@ -1,7 +1,7 @@
 describe("Algie", function() {
 
 
-  describe("allMultiplyBy", function() {
+  describe("algie_allMultiplyBy", function() {
     it("should convert [1,2,3] into [1,4,6] when all elements are multiplied by 2", function() {
       expect(allMultiplyBy([1,2,3], 2)).toEqual([2,4,6]);
     });
@@ -11,7 +11,7 @@ describe("Algie", function() {
 
   });
 
-  describe("function 42", function() {
+  describe("algie_42", function() {
     it("should return 42", function() {
       expect(algie_42()).toEqual(42);
     });
