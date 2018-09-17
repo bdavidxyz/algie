@@ -57,5 +57,23 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_isArrayOfString", function() {
+    it("should return true if there are only strings in a simple array", function() {
+      expect(algie_isArrayOfString(["a", "b", "c"])).toEqual(true);
+    });
+    it("should return true if there are only strings in a more complex array, with empty string and sentences", function() {
+      expect(algie_isArrayOfString(["la", "do", "re", "", "fa", "a sentence", "another sentence"])).toEqual(true);
+    });
+    it("should return true if it is an empty array", function() {
+      expect(algie_isArrayOfString([])).toEqual(true);
+    });
+    it("should return false if it is not an array", function() {
+      expect(algie_isArrayOfString(42)).toEqual(false);
+    });
+    it("should return false if it there is something else than a String in the array", function() {
+      expect(algie_isArrayOfString(["a", "b", 42, "c"])).toEqual(false);
+    });
+  });
+
 
 });
