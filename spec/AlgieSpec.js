@@ -36,15 +36,15 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_elementNext", function() {
+  describe("algie_elementAfter", function() {
     it("element next to 9 in array [8, 9, 33] is 33", function() {
-      expect(algie_elementNext([8, 9, 33], 9)).toEqual(33);
+      expect(algie_elementAfter([8, 9, 33], 9)).toEqual(33);
     });
     it("element next to 42 in array [8, 9, 33, 42, 78, 13] is 78", function() {
-      expect(algie_elementNext([8, 9, 33, 42, 78, 13], 42)).toEqual(78);
+      expect(algie_elementAfter([8, 9, 33, 42, 78, 13], 42)).toEqual(78);
     });
-    it("element next to 13 in array [8, 9, 33, 42, 78, 13] is 8 (yes ! element after the last one is the first one)", function() {
-      expect(algie_elementNext([8, 9, 33, 42, 78, 13], 42)).toEqual(78);
+    it("element next to 13 in array [8, 9, 33, 42, 78, 13] is 8 (yes ! in this exercise, element after the last one is the first one)", function() {
+      expect(algie_elementAfter([8, 9, 33, 42, 78, 13], 42)).toEqual(78);
     });
   });
 
@@ -54,6 +54,24 @@ describe("Algie", function() {
     });
     it("'foo' with 'A' everywhere will become 'AfAoAoA'", function() {
       expect(algie_insertEverywhere('foo', 'A')).toEqual('AfAoAoA');
+    });
+  });
+
+  describe("algie_toPropArray", function() {
+    it("transforms {a:11, b:42} into [{prop:'a', value:11}, {prop:'b', value:42}]", function() {
+      expect(algie_toPropArray({a:11, b:42})).toEqual([{prop:'a', value:11}, {prop:'b', value:42}]);
+    });
+    it("transforms {foo:'sth', bar:'z', me:'too'} into [{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]", function() {
+      expect(algie_toPropArray({foo:"sth", bar:"z", me:"too"})).toEqual([{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]);
+    });
+  });
+
+  describe("algie_fromPropArray", function() {
+    it("transforms [{prop:'a', value:'11'}, {prop:'b', value:'42'}] into {a:11, b:42}", function() {
+      expect(algie_fromPropArray([{prop:'a', value:'11'}, {prop:'b', value:'42'}])).toEqual({a:11, b:42});
+    });
+    it("transforms {foo:'sth', bar:'z', me:'too'} into [{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]", function() {
+      expect(algie_fromPropArray({foo:"sth", bar:"z", me:"too"})).toEqual([{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]);
     });
   });
 
