@@ -75,5 +75,20 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_maxOfConsecutiveInArray", function() {
+    it("should return 3 when there is 3 consecutive elements in array", function() {
+      expect(algie_maxOfConsecutiveInArray(["a", "a", "c", "c", "c", "z"])).toEqual(3);
+    });
+    it("should return 5 when there is 5 consecutive elements in array, with same element in multiple places", function() {
+      expect(algie_maxOfConsecutiveInArray(["a", "a", "c", "a", "a", "a", "a", "a"])).toEqual(5);
+    });
+    it("should return 4 when there is only the 4 same elements in array", function() {
+      expect(algie_maxOfConsecutiveInArray(["a", "a", "a", "a"])).toEqual(4);
+    });
+    it("should return 0 when array is empty", function() {
+      expect(algie_maxOfConsecutiveInArray([])).toEqual(4);
+    });
+  });
+
 
 });
