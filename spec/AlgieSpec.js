@@ -99,6 +99,18 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_generateWord", function() {
+    it("A call to the function generate a word, size 6", function() {
+      expect(algie_generateWord()).toEqual(6);
+    });
+    it("Multiple call to the function always generate a different word", function() {
+      expect(algie_generateWord()).not.toEqual(algie_generateWord());
+    });
+    it("First letter is always a consonant", function() {
+      expect(algie_generateWord().charAt(0));
+    });
+  });
+
   describe("algie_cutAndMultiplyNumber", function() {
     it("42 is made of 4 and 2. Therefore, function must return 8 (4*2)", function() {
       expect(algie_cutAndMultiplyNumber(42)).toEqual(8);
