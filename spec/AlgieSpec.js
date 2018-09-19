@@ -101,13 +101,28 @@ describe("Algie", function() {
 
   describe("algie_generateWord", function() {
     it("A call to the function generate a word, size 6", function() {
-      expect(algie_generateWord()).toEqual(6);
+      expect(algie_generateWord().length).toEqual(6);
     });
     it("Multiple call to the function always generate a different word", function() {
       expect(algie_generateWord()).not.toEqual(algie_generateWord());
     });
-    it("First letter is always a consonant", function() {
-      expect(algie_generateWord().charAt(0));
+    it("1st char is always a lower-cased consonant (i.e. char others than a-e-i-o-u-y)", function() {
+      expect(algie_generateWord().charAt(0)).toBeConsonant();
+    });
+    it("2nd char is always a lower-cased vowel (i.e. a-e-i-o-u-y)", function() {
+      expect(algie_generateWord().charAt(1)).toBeVowel();
+    });
+    it("3rd char is always a lower-cased consonant", function() {
+      expect(algie_generateWord().charAt(2)).toBeConsonant();
+    });
+    it("4th char is always a lower-cased vowel", function() {
+      expect(algie_generateWord().charAt(3)).toBeVowel();
+    });
+    it("5th char is always a lower-cased consonant", function() {
+      expect(algie_generateWord().charAt(4)).toBeConsonant();
+    });
+    it("6th char is always a lower-cased vowel", function() {
+      expect(algie_generateWord().charAt(5)).toBeVowel();
     });
   });
 

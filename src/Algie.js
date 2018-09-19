@@ -6,3 +6,7 @@ algie_42 = function() {
 algie_allMultiplyBy =  function(array, number) {
   // Write function here
 }
+
+algie_generateWord = function() {
+  // return "zaropi"
+}
