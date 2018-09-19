@@ -57,6 +57,18 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_beforeMax", function() {
+    it("Should find a high number, the one before the maximum, in an array with numbers", function() {
+      expect(algie_beforeMax([1, 5, 4, 3, 65, 23, 42, 55, 12])).toEqual(55);
+    });
+    it("Should find a high number, the one before the maximum, in an array with numbers and other types", function() {
+      expect(algie_beforeMax(["1", "z", 4, 3, 65, /^/, 42, 51, 12])).toEqual(51);
+    });
+    it("Should find the high number, the one before the maximum, in an array with numbers, other types and null values", function() {
+      expect(algie_beforeMax([1, null, 4, new Date(), undefined, 23, 42, "55", 12])).toEqual(23);
+    });
+  });
+
   describe("algie_toPropArray", function() {
     it("transforms {a:11, b:42} into [{prop:'a', value:11}, {prop:'b', value:42}]", function() {
       expect(algie_toPropArray({a:11, b:42})).toEqual([{prop:'a', value:11}, {prop:'b', value:42}]);
@@ -72,6 +84,33 @@ describe("Algie", function() {
     });
     it("transforms {foo:'sth', bar:'z', me:'too'} into [{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]", function() {
       expect(algie_fromPropArray({foo:"sth", bar:"z", me:"too"})).toEqual([{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]);
+    });
+  });
+
+  describe("algie_missingNumber", function() {
+    it("In the 2-dimensional array [['-1', '-2', '1'], [], ['2']], the missing number is 0", function() {
+      expect(algie_missingNumber([['-1', '-2', '1'], [], ['2']])).toEqual(0);
+    });
+    it("In the 2-dimensional array [['1', '2', null, '4'], ['3', '6']], the missing number is 5", function() {
+      expect(algie_missingNumber([['1', '2', null, '4'], ['3', '6']])).toEqual(5);
+    });
+    it("In the 2-dimensional array [['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']], the missing number is 8", function() {
+      expect(algie_missingNumber([['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']])).toEqual(8);
+    });
+  });
+
+  describe("algie_cutAndMultiplyNumber", function() {
+    it("42 is made of 4 and 2. Therefore, function must return 8 (4*2)", function() {
+      expect(algie_cutAndMultiplyNumber(42)).toEqual(8);
+    });
+    it("263 is made of 2, 6 and 3. Therefore, function must return 36 (2*6*3)", function() {
+      expect(algie_cutAndMultiplyNumber(263)).toEqual(36);
+    });
+    it("630 is made of 6, 3 and 0. Therefore, function must return 0 (6*3*0)", function() {
+      expect(algie_cutAndMultiplyNumber(630)).toEqual(0);
+    });
+    it("7211 is made of 7, 2, 1 and 1. Therefore, function must return 14 (7*2*1*1)", function() {
+      expect(algie_cutAndMultiplyNumber(7211)).toEqual(14);
     });
   });
 
@@ -129,7 +168,7 @@ describe("Algie", function() {
         ["x", "o", "x", "o", "x", "o"],
         )).toEqual(false);
     });
-    it("should return true if there is no 4 consecutive coins in a diagonal", function() {
+    it("should return false if there is no 4 consecutive coins in a diagonal", function() {
       expect(algie_connect4(
         [" ", " ", " ", " ", " ", " "],
         [" ", " ", "o", "x", "x", " "],
@@ -177,6 +216,14 @@ describe("Algie", function() {
         ["o", "x", "o", "o", "o", "o"],
         ["o", "x", "o", "x", "o", "x"],
         ["x", "o", "x", "o", "x", "o"],
+        )).toEqual(true);
+    });
+    it("should return true if there is 4 consecutive non-empty element in a diagonal, even with multiple coins type, in a 4x4 grid", function() {
+      expect(algie_connect4(
+        ["x", "o", "x", "x"],
+        ["o", "x", "x", "o"],
+        ["o", "x", "o", "x"],
+        ["x", "o", "o", "o"],
         )).toEqual(true);
     });
   });
