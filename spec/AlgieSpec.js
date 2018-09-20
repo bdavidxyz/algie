@@ -37,13 +37,13 @@ describe("Algie", function() {
   });
 
   describe("algie_elementAfter", function() {
-    it("element next to 9 in array [8, 9, 33] is 33", function() {
+    it("element after 9 in array [8, 9, 33] is 33", function() {
       expect(algie_elementAfter([8, 9, 33], 9)).toEqual(33);
     });
-    it("element next to 42 in array [8, 9, 33, 42, 78, 13] is 78", function() {
+    it("element after 42 in array [8, 9, 33, 42, 78, 13] is 78", function() {
       expect(algie_elementAfter([8, 9, 33, 42, 78, 13], 42)).toEqual(78);
     });
-    it("element next to 13 in array [8, 9, 33, 42, 78, 13] is 8 (yes ! in this exercise, element after the last one is the first one)", function() {
+    it("element after 13 in array [8, 9, 33, 42, 78, 13] is 8 (yes ! in this exercise, element after the last one is the first one)", function() {
       expect(algie_elementAfter([8, 9, 33, 42, 78, 13], 42)).toEqual(78);
     });
   });
