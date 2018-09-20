@@ -91,7 +91,29 @@ describe("Algie", function() {
     });
   });
 
-
+  describe("algie_arrayWithSameValues", function() {
+    it("Should return true if given arrays are the same", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2], [1, 5, 2])).toEqual(true);
+    });
+    it("Should return true if given arrays are the same, but with elements in different order (example with Integer)", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2], [5, 2, 1])).toEqual(true);
+    });
+    it("Should return true if given arrays are the same, but with elements in different order (example with String)", function() {
+      expect(algie_arrayWithSameValues(["ef", "ab", "zz", "ty"], ["ty", "ab", "ef", "zz"])).toEqual(true);
+    });
+    it("Should return false if given arrays are not the same (easy example)", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2], ["a", "b"])).toEqual(false);
+    });
+    it("Should return false if given arrays are not the same (tricky example)", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2, null], [1, 5, 2, undefined])).toEqual(false);
+    });
+    it("Should return false if wrong types are given as parameter", function() {
+      expect(algie_arrayWithSameValues(/^/, /^/)).toEqual(false);
+    });
+    it("Should return false if no array are given", function() {
+      expect(algie_arrayWithSameValues()).toEqual(false);
+    });
+  });
 
   describe("algie_beforeMax", function() {
     it("Should find a high number, the one before the maximum, in an array with numbers", function() {
