@@ -11,7 +11,7 @@ beforeEach(function () {
         }
       };
     },
-    toBeArraysWithSameValues: function () {
+    toBeArrayWithSameValuesAs: function () {
       return {
         compare: function (actual, expected) {
 
