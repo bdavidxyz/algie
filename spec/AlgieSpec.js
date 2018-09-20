@@ -57,6 +57,42 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_cupsRepartition", function() {
+    it("Should give each kid the same number of cups, for example 2 kids with 8 cups", function() {
+      expect(algie_cupsRepartition([
+          {name: "bob", cups:1},
+          {name: "jen", cups:7}
+        ])).toEqual([
+          {name: "bob", cups:4},
+          {name: "jen", cups:4}
+        ]);
+    });
+    it("Should give each kid the same number of cups, for example 3 kids with 9 cups", function() {
+      expect(algie_cupsRepartition([
+          {name: "ken", cups:0},
+          {name: "dan", cups:4},
+          {name: "gor", cups:5}
+        ])).toEqual([
+          {name: "ken", cups:3},
+          {name: "dan", cups:3},
+          {name: "gor", cups:3}
+        ]);
+    });
+    it("Should give each kid the same number of cups, if not possible, kids with higher name in alphabet have 1 more cup.", function() {
+      expect(algie_cupsRepartition([
+          {name: "cod", cups:5},
+          {name: "alf", cups:4},
+          {name: "ben", cups:2}
+        ])).toEqual([
+          {name: "alf", cups:4},
+          {name: "cod", cups:3},
+          {name: "ben", cups:4}
+        ]);
+    });
+  });
+
+
+
   describe("algie_beforeMax", function() {
     it("Should find a high number, the one before the maximum, in an array with numbers", function() {
       expect(algie_beforeMax([1, 5, 4, 3, 65, 23, 42, 55, 12])).toEqual(55);
