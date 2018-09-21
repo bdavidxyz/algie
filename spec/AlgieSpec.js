@@ -398,6 +398,12 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_fooBarQix", function() {
+    it("return 'foo' if number can be divided by 3 : for example, 3", function() {
+      expect(algie_fooBarQix(3)).toEqual('foo');
+    });
+  });
+
   describe("algie_isDecreasing", function() {
     it("returns true if the args are decreasing (example 1)", function() {
       expect(algie_isDecreasing(5, 4, 3, 2)).toEqual(true);
