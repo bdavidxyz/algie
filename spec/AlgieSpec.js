@@ -326,5 +326,17 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_swapByPair", function() {
+    it("['a', 'b'] becomes ['b', 'a']", function() {
+      expect(algie_swapByPair(['a', 'b'])).toEqual(['b', 'a']);
+    });
+    it("['a', 'b', 'c', 'd'] becomes ['b', 'a', 'd', 'c']", function() {
+      expect(algie_swapByPair(['a', 'b', 'c', 'd'])).toEqual(['b', 'a', 'd', 'c']);
+    });
+    it("[1, 2, 3, 4, 5, 6] becomes [2, 1, 4, 3, 6, 5]", function() {
+      expect(algie_swapByPair([1, 2, 3, 4, 5, 6])).toEqual([2, 1, 4, 3, 6, 5]);
+    });
+  });
+
 });
 
