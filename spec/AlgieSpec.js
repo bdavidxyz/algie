@@ -6,6 +6,16 @@ describe("Algie", function() {
     });
   });
 
+
+  describe("algie_camelCaseToSentence", function() {
+    it("should convert 'GlobalWarning' into 'global warning'", function() {
+      expect(algie_camelCaseToSentence('GlobalWarning')).toEqual('global warning');
+    });
+    it("should convert 'IAmAnIncredibleDude' into 'i am an incredible dude'", function() {
+      expect(algie_camelCaseToSentence('IAmAnIncredibleDude')).toEqual('i am an incredible dude');
+    });
+  });
+
   describe("algie_allMultiplyBy", function() {
     it("should convert [1, 2, 3] into [2, 4, 6] when all elements are multiplied by 2", function() {
       expect(algie_allMultiplyBy([1, 2, 3], 2)).toEqual([2, 4, 6]);
@@ -24,6 +34,19 @@ describe("Algie", function() {
     });
     it("[9, 41] multiplied by [6, 76] gives [54, 3116]", function() {
       expect(algie_multiplyEach([9, 41], [6, 76])).toEqual([54, 3116]);
+    });
+  });
+
+  describe("algie_reversedIndex", function() {
+    it("should return the last element of array for index 0", function() {
+      expect(algie_reversedIndex([1, 2, 3, 4], 0)).toEqual(4);
+    });
+    it("should return the before-last element of array for index 1", function() {
+      expect(algie_reversedIndex([9, 32, 11, 9, 15, 87], 1)).toEqual(15);
+    });
+    it("should return the first element of array when index equals the length of the array minus 1", function() {
+      var array = [3, 2, 5, 4, 0, 18, 43, 9];
+      expect(algie_reversedIndex(array, array.length - 1)).toEqual(3);
     });
   });
 
@@ -267,7 +290,32 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_stringToHash", function() {
+    it("should convert sentence 'hello abc' to hash {hello:{vowels:2, consonants:3}, abc:{vowels:1, consonants:2}}", function() {
+      expect(algie_stringToHash('hello abc')).toEqual({hello:{vowels:2, consonants:3}, abc:{vowels:1, consonants:2}});
+    });
+    it("should convert sentence 'uzero foo eh' to hash {zero:{vowels:3, consonants:2}, foo:{vowels:2, consonants:1}, eh:{vowels:1, consonants:1}}", function() {
+      expect(algie_stringToHash('uzero foo eh')).toEqual({zero:{vowels:3, consonants:2}, foo:{vowels:2, consonants:1}, eh:{vowels:1, consonants:1}});
+    });
+  });
 
+  describe("algie_indexHash. It returns the element whose key is in nth position in the alphabetical order", function() {
+    it("Should return 22 with hash {a:11, b:22, c:33}, and index 1", function() {
+      expect(algie_indexHash({a:11, b:22, c:33}, 1)).toEqual(22);
+    });
+    it("Should return 33 with hash {d:44, f:66, e:55, a:11, b:22, c:33}, and index 2", function() {
+      expect(algie_indexHash({d:44, f:66, e:55, a:11, b:22, c:33}, 2)).toEqual(33);
+    });
+    it("Should return 'amend' with hash {foo: 'foo', amend:'amend'}, and index 0", function() {
+      expect(algie_indexHash({foo: 'foo', amend:'amend'}, 0)).toEqual("amend");
+    });
+    it("Should return 0 if hash is empty", function() {
+      expect(algie_indexHash({}, 4)).toEqual(0);
+    });
+    it("Should return 0 when no arg given", function() {
+      expect(algie_indexHash()).toEqual(0);
+    });
+  });
 
 
 });
