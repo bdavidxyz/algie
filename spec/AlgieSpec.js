@@ -207,8 +207,8 @@ describe("Algie", function() {
     it("In the 2-dimensional array [['-1', '-2', '1'], [], ['2']], the missing number is 0", function() {
       expect(algie_missingNumber([['-1', '-2', '1'], [], ['2']])).toEqual(0);
     });
-    it("In the 2-dimensional array [['1', '2', null, '4'], ['3', '6']], the missing number is 5", function() {
-      expect(algie_missingNumber([['1', '2', null, '4'], ['3', '6']])).toEqual(5);
+    it("In the 2-dimensional array [['0', '-1','1', '2', null, '4'], ['3', '6']], the missing number is 5", function() {
+      expect(algie_missingNumber([['0', '-1', '1', '2', null, '4'], ['3', '6']])).toEqual(5);
     });
     it("In the 2-dimensional array [['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']], the missing number is 8", function() {
       expect(algie_missingNumber([['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']])).toEqual(8);
@@ -317,5 +317,13 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_stripCommonPath", function() {
+    it("['/myDir/a.txt', '/myDir/b.txt', '/myDir/c.txt'] becomes ['/a.txt', '/b.txt', '/c.txt'] because /myDir is the common path", function() {
+      expect(algie_stripCommonPath(['/myDir/a.txt', '/myDir/b.txt', '/myDir/c.txt'])).toEqual(['/a.txt', '/b.txt', '/c.txt']);
+    });
+    it("['/www/workspace/zz.txt', '/www/user/zz.txt'] becomes ['/workspace/zz.txt', '/user/zz.txt'] because /www is the common path", function() {
+      expect(algie_stripCommonPath(['/www/workspace/zz.txt', '/www/user/zz.txt'])).toEqual(['/workspace/zz.txt', '/user/zz.txt']);
+    });
+  });
 
 });
