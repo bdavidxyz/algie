@@ -294,8 +294,8 @@ describe("Algie", function() {
     it("should convert sentence 'hello abc' to hash {hello:{vowels:2, consonants:3}, abc:{vowels:1, consonants:2}}", function() {
       expect(algie_stringToHash('hello abc')).toEqual({hello:{vowels:2, consonants:3}, abc:{vowels:1, consonants:2}});
     });
-    it("should convert sentence 'uzero foo eh' to hash {zero:{vowels:3, consonants:2}, foo:{vowels:2, consonants:1}, eh:{vowels:1, consonants:1}}", function() {
-      expect(algie_stringToHash('uzero foo eh')).toEqual({zero:{vowels:3, consonants:2}, foo:{vowels:2, consonants:1}, eh:{vowels:1, consonants:1}});
+    it("should convert sentence 'uzero foo eh' to hash {uzero:{vowels:3, consonants:2}, foo:{vowels:2, consonants:1}, eh:{vowels:1, consonants:1}}", function() {
+      expect(algie_stringToHash('uzero foo eh')).toEqual({uzero:{vowels:3, consonants:2}, foo:{vowels:2, consonants:1}, eh:{vowels:1, consonants:1}});
     });
   });
 
@@ -335,6 +335,48 @@ describe("Algie", function() {
     });
     it("[1, 2, 3, 4, 5, 6] becomes [2, 1, 4, 3, 6, 5]", function() {
       expect(algie_swapByPair([1, 2, 3, 4, 5, 6])).toEqual([2, 1, 4, 3, 6, 5]);
+    });
+  });
+
+  describe("algie_hideThat. Hides every char between first and last char.", function() {
+    it("'hello' becomes 'h***o'", function() {
+      expect(algie_hideThat('hello')).toEqual('h***o');
+    });
+    it("'funk' becomes 'f**k'", function() {
+      expect(algie_hideThat('funk')).toEqual('f**k');
+    });
+    it("'a' becomes 'a'", function() {
+      expect(algie_hideThat('a')).toEqual('a');
+    });
+    it("should hide a regexp, /^ImARegExp/, becomes '/*********/'", function() {
+      expect(algie_hideThat(/^ImARegExp/)).toEqual('/*********/');
+    });
+    it("should hide a number, 4242, becomes '4**2'", function() {
+      expect(algie_hideThat(4242)).toEqual('4**2');
+    });
+  });
+
+  describe("algie_ordinalSuffix", function() {
+    it("should return 'st' if given number ends with 1", function() {
+      expect(algie_ordinalSuffix(141)).toEqual('st');
+    });
+    it("should return 'nd' if given number ends with 2", function() {
+      expect(algie_ordinalSuffix(242)).toEqual('nd');
+    });
+    it("should return 'rd' if given number ends with 3", function() {
+      expect(algie_ordinalSuffix(7353)).toEqual('rd');
+    });
+    it("should return 'th' if given number ends with 4", function() {
+      expect(algie_ordinalSuffix(44)).toEqual('th');
+    });
+    it("should return 'th' if given number ends with 7", function() {
+      expect(algie_ordinalSuffix(5647)).toEqual('th');
+    });
+    it("should return 'th' if given number ends with 9", function() {
+      expect(algie_ordinalSuffix(9)).toEqual('th');
+    });
+    it("should return '' if given arg is not a number", function() {
+      expect(algie_ordinalSuffix(new Date())).toEqual('');
     });
   });
 
