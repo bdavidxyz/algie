@@ -398,9 +398,18 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_fooBarQix", function() {
-    it("return 'foo' if number can be divided by 3 : for example, 3", function() {
-      expect(algie_fooBarQix(3)).toEqual('foo');
+  describe("algie_dirtyString", function() {
+    it("convert a badly formatted string in an array of ordered numbers without duplication (example 1)", function() {
+      expect(algie_dirtyString(',4, 2 , 2,1,  ,')).toEqual([1, 2, 4]);
+    });
+    it("convert a badly formatted string in an array of ordered numbers without duplication (example 2)", function() {
+      expect(algie_dirtyString('12 ,34, 41, 12, 22  , 2,')).toEqual([2, 12, 22, 34, 41]);
+    });
+    it("returns an empty array if something else than Integer is in the string", function() {
+      expect(algie_dirtyString(',4, 2 , 2,1, 3, 5 ,1.1')).toEqual([]);
+    });
+    it("returns an empty array if something a wrong type is given", function() {
+      expect(algie_dirtyString(new Date())).toEqual([]);
     });
   });
 
