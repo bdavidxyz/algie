@@ -389,5 +389,20 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_isDecreasing", function() {
+    it("returns true if the args are decreasing (example 1)", function() {
+      expect(algie_isDecreasing(5, 4, 3, 2)).toEqual(true);
+    });
+    it("returns true if the args are decreasing (example 2)", function() {
+      expect(algie_isDecreasing(15, 4, -3, -12, -22)).toEqual(true);
+    });
+    it("returns false if the args are NOT continuously decreasing", function() {
+      expect(algie_isDecreasing(87, 54, 32, 43, 11, 5, 1)).toEqual(false);
+    });
+    it("returns false if the args are increasing", function() {
+      expect(algie_isDecreasing(1, 2, 3, 4)).toEqual(false);
+    });
+  });
+
 });
 
