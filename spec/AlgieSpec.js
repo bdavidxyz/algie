@@ -389,6 +389,15 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_numbersAfter", function() {
+    it("returns the 6 next numbers after a given number (example 1)", function() {
+      expect(algie_numbersAfter(23)).toEqual([24, 25, 26, 27, 28, 29]);
+    });
+    it("returns the 6 next numbers after a given number (example 2)", function() {
+      expect(algie_numbersAfter(42)).toEqual([43, 44, 45, 46, 47, 48]);
+    });
+  });
+
   describe("algie_isDecreasing", function() {
     it("returns true if the args are decreasing (example 1)", function() {
       expect(algie_isDecreasing(5, 4, 3, 2)).toEqual(true);
