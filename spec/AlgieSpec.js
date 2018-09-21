@@ -380,5 +380,14 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_largestString", function() {
+    it("returns the largest String in an array of String (example 1)", function() {
+      expect(algie_largestString(["axel", "bob", "alice", "olaf"])).toEqual("alice");
+    });
+    it("returns the largest String in an array of String (example 2)", function() {
+      expect(algie_largestString(["hello", "how", "are", "you", "my", "friend"])).toEqual("friend");
+    });
+  });
+
 });
 
