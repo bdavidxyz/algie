@@ -389,6 +389,15 @@ describe("Algie", function() {
     });
   });
 
+  describe("algie_arrayOfBoolean. Given an array of numbers, returns an array of boolean. If the number exist in the first array, then resulting_array[number] = true. All other elements in resulting array are false.", function() {
+    it("[0, 2] becomes [true, false, true]", function() {
+      expect(algie_arrayOfBoolean([0, 2])).toEqual([true, false, true]);
+    });
+    it("[0, 1, 4] becomes [true, true, false, false, true]", function() {
+      expect(algie_arrayOfBoolean([0, 1, 4])).toEqual([true, true, false, false, true]);
+    });
+  });
+
   describe("algie_numbersAfter", function() {
     it("returns the 6 next numbers after a given number (example 1)", function() {
       expect(algie_numbersAfter(23)).toEqual([24, 25, 26, 27, 28, 29]);
@@ -425,6 +434,21 @@ describe("Algie", function() {
     });
     it("returns false if the args are increasing", function() {
       expect(algie_isDecreasing(1, 2, 3, 4)).toEqual(false);
+    });
+  });
+
+  describe("algie_divisorsOf. Find the highest divisor of a number (excerpt itself), and return the multiplication of the 2 numbers", function() {
+    it("10 can be divided by 1, 2, 5, 10. Therefore, f(10) return [5, 2]", function() {
+      expect(algie_divisorsOf(10)).toEqual([5, 2]);
+    });
+    it("33 can be divided by 1, 3, 11, 33. Therefore, f(33) return [11, 3]", function() {
+      expect(algie_divisorsOf(33)).toEqual([11, 3]);
+    });
+    it("49 and can be divided by [1, 7, 49]. And 9 can be divided by [1, 3, 9]. Therefore, f(49, 9) return [[7, 7], [3, 3]]", function() {
+      expect(algie_divisorsOf(33)).toEqual([11, 3]);
+    });
+    it("2 and can be divided by [1, 2]. And 4 can be divided by [1, 2, 4]. Therefore, f(2, 4) return [[1, 2], [2, 2]]", function() {
+      expect(algie_divisorsOf(33)).toEqual([11, 3]);
     });
   });
 
