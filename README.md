@@ -29,9 +29,8 @@ Modify src/Algie, and reload index.html, until all tests are green
  - Learn him/her to train every day.
  - Learn him/her not to do too difficult task when training, because this won't help.
  - Learn him/her not to do too easy task when training, because he/she won't learn anything new.
- - Discuss with him/her about the solution and how to improve it. 
- - Make him/her redo an exercice that was already solved a few weeks ago.  
- -   
+ - Discuss with him/her about the solution and how to improve it.
+ - Make him/her redo an exercice that was already solved a few weeks ago.
 
 ## Motivation
 

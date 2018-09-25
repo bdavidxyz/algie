@@ -508,5 +508,17 @@ describe("Algie", function() {
     });
   });
 
+  describe('algie_occurencesOf', function() {
+    it('"aba" should be converted into {a:2, b:1}', function() {
+      expect(algie_occurencesOf("aba")).toEqual({a:2, b:1});
+    });
+    it('"hello" should be converted into {h:1, e:1, l:2, o:1}', function() {
+      expect(algie_occurencesOf("hello")).toEqual({h:1, e:1, l:2, o:1});
+    });
+    it('"Abba" should be converted into {a:2, b:2}', function() {
+      expect(algie_occurencesOf("Abba")).toEqual({a:2, b:2});
+    });
+  });
+
 });
 
