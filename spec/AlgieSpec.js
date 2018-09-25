@@ -520,5 +520,14 @@ describe("Algie", function() {
     });
   });
 
+  describe('algie_playWar. Player1 has cards from 0 to N, Player2 has cards from N to 0.', function() {
+    it('Player1 has cards [6] and Player2 has cards [3]. Player1 wins the game because 6 is stronger than 3.', function() {
+      expect(algie_playWar([6], [3])).toEqual("Player1 wins with all cards [3, 6]");
+    });
+    it('Player1 has cards [4,6] and Player2 has cards [1,3]. Player1 wins the game because 6 is stronger than 1, and 4 is stronger than 3.', function() {
+      expect(algie_playWar([4,6], [1,3])).toEqual("Player1 wins with all cards [3, 4, 1, 6]");
+    });
+  });
+
 });
 
