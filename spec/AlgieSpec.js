@@ -80,27 +80,45 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_none", function() {
+  describe("algie_noneOf", function() {
     it("Should return true if all values inside array are false", function() {
-      expect(algie_none([false, false, false])).toEqual(true);
+      expect(algie_noneOf([false, false, false])).toEqual(true);
     });
     it("Should return false if one value is true", function() {
-      expect(algie_none([false, false, true])).toEqual(false);
+      expect(algie_noneOf([false, false, true])).toEqual(false);
     });
     it("Should return true if all values inside array are falsy", function() {
-      expect(algie_none([undefined, null, false, 0])).toEqual(true);
+      expect(algie_noneOf([undefined, null, false, 0])).toEqual(true);
     });
     it("Should return false if one value is truthy", function() {
-      expect(algie_none([false, false, "a string", 0, undefined, null])).toEqual(false);
+      expect(algie_noneOf([false, false, "a string", 0, undefined, null])).toEqual(false);
     });
     it("Should return false if multiple values are truthy", function() {
-      expect(algie_none([false, false, "a string", 0, undefined, 42])).toEqual(false);
+      expect(algie_noneOf([false, false, "a string", 0, undefined, 42])).toEqual(false);
     });
     it("Should return false if all values are true", function() {
-      expect(algie_none([true, true, true, true, true])).toEqual(false);
+      expect(algie_noneOf([true, true, true, true, true])).toEqual(false);
     });
     it("Should return true if array is empty", function() {
-      expect(algie_none([])).toEqual(true);
+      expect(algie_noneOf([])).toEqual(true);
+    });
+  });
+
+  describe("algie_fewOf", function() {
+    it("Should return true if some (but not all) values inside array are true", function() {
+      expect(algie_fewOf([true, true, false])).toEqual(true);
+    });
+    it("Should return false if all values inside array are true", function() {
+      expect(algie_fewOf([true, true, true])).toEqual(false);
+    });
+    it("Should return true if some (but not all) values inside array are truthy", function() {
+      expect(algie_fewOf(["a string", null, {a:1}, true])).toEqual(true);
+    });
+    it("Should return false if all values inside array are truthy", function() {
+      expect(algie_fewOf(["a string", [1, 2], {a:1}, true])).toEqual(true);
+    });
+    it("Should return false if array is empty", function() {
+      expect(algie_fewOf([])).toEqual(false);
     });
   });
 
@@ -449,6 +467,44 @@ describe("Algie", function() {
     });
     it("2 and can be divided by [1, 2]. And 4 can be divided by [1, 2, 4]. Therefore, f(2, 4) return [[1, 2], [2, 2]]", function() {
       expect(algie_divisorsOf(2, 4)).toEqual([[1, 2], [2, 2]]);
+    });
+  });
+
+  describe('algie_uniqAnagrams. Find the number of unique anagram(s) for a given String', function() {
+    it('should return 0 for empty String', function() {
+      expect(algie_uniqAnagrams("")).toEqual(0);
+    });
+    it('should return 0 for unexpected argument', function() {
+      expect(algie_uniqAnagrams(new Date())).toEqual(0);
+    });
+    it('should return 1 for "a"', function() {
+      expect(algie_uniqAnagrams("a")).toEqual(1);
+    });
+    it('should return 2 for "abba"', function() {
+      expect(algie_uniqAnagrams("abba")).toEqual(2);
+    });
+    it('should return 6 for "okayako"', function() {
+      expect(algie_uniqAnagrams("okayako")).toEqual(6);
+    });
+  });
+
+  describe('algie_fooBarQixZzz. Returns "foo" if number can be divided by 3, "bar" by 5, "qix" by 15, "zzz" in every other case', function() {
+    it('should return "foo" for 3 or 9', function() {
+      expect(algie_fooBarQixZzz(3)).toEqual("foo");
+      expect(algie_fooBarQixZzz(9)).toEqual("foo");
+    });
+    it('should return "bar" for 5 or 50', function() {
+      expect(algie_fooBarQixZzz(5)).toEqual("bar");
+      expect(algie_fooBarQixZzz(50)).toEqual("bar");
+    });
+    it('should return "qix" for 15 or 60', function() {
+      expect(algie_fooBarQixZzz(15)).toEqual("qix");
+      expect(algie_fooBarQixZzz(60)).toEqual("qix");
+    });
+    it('should return "zzz" for 0, or null, or 7', function() {
+      expect(algie_fooBarQixZzz(0)).toEqual("zzz");
+      expect(algie_fooBarQixZzz(null)).toEqual("zzz");
+      expect(algie_fooBarQixZzz(7)).toEqual("zzz");
     });
   });
 
