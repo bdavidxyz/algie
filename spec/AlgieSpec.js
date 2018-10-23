@@ -587,5 +587,47 @@ describe("Algie", function() {
     });
   });
 
+  describe('algie_sortByConsecutive. Sort a string so that char that have the most consecutive elements appears first.', function() {
+    it('f("bbaaa") => "aaabb"', function() {
+      expect(algie_sortByConsecutive("bbaaa")).toEqual("aaabb");
+    });
+    it('f("zzooooppammmmmm") => "mmmmmmooooppzza"', function() {
+      expect(algie_sortByConsecutive("zzooooppammmmmm")).toEqual("mmmmmmooooppzza");
+    });
+  });
+
+  describe('algie_lastWillBeFirst. Invert first and last element of an array', function() {
+    it('f([1, 2, 3, 4]) => [4, 2, 3, 1]', function() {
+      expect(algie_lastWillBeFirst("[1, 2, 3, 4]")).toEqual("[4, 2, 3, 1]");
+    });
+    it('f([12, 45, 8, 22, 89]) => [89, 45, 8, 22, 12]', function() {
+      expect(algie_lastWillBeFirst("[12, 45, 8, 22, 89]")).toEqual("[89, 45, 8, 22, 12]");
+    });
+  });
+
+  describe('algie_simplifyWord. Returns first and last character of a string, and the number of character between.', function() {
+    it('f("accessibility") => "a11y"', function() {
+      expect(algie_simplifyWord("accessibility")).toEqual("a11y");
+    });
+    it('f("internationalization") => "i18n"', function() {
+      expect(algie_simplifyWord("internationalization")).toEqual("i18n");
+    });
+    it('f("aaa") => "a1a"', function() {
+      expect(algie_simplifyWord("aaa")).toEqual("a1a");
+    });
+  });
+
+  describe('algie_initials. ', function() {
+    it('f("accessibility") => "a11y"', function() {
+      expect(algie_simplifyWord("accessibility")).toEqual("a11y");
+    });
+    it('f("internationalization") => "i18n"', function() {
+      expect(algie_simplifyWord("internationalization")).toEqual("i18n");
+    });
+    it('f("aaa") => "a1a"', function() {
+      expect(algie_simplifyWord("aaa")).toEqual("a1a");
+    });
+  });
+
 });
 
