@@ -523,6 +523,9 @@ describe("Algie", function() {
   });
 
   describe('algie_niceDraw', function() {
+    it('f("*", "-", 2) => "*-"', function() {
+      expect(algie_niceDraw("*", "-", 2)).toEqual("*-");
+    });
     it('f("*", "-", 4) => "*-*-"', function() {
       expect(algie_niceDraw("*", "-", 4)).toEqual("*-*-");
     });
