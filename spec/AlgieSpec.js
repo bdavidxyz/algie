@@ -11,8 +11,8 @@ describe("Algie", function() {
     it("should convert 'GlobalWarning' into 'global warning'", function() {
       expect(algie_camelCaseToSentence('GlobalWarning')).toEqual('global warning');
     });
-    it("should convert 'IAmAnIncredibleDude' into 'i am an incredible dude'", function() {
-      expect(algie_camelCaseToSentence('IAmAnIncredibleDude')).toEqual('i am an incredible dude');
+    it("should convert 'YouAreAnIncredibleDude' into 'i am an incredible dude'", function() {
+      expect(algie_camelCaseToSentence('YouAreAnIncredibleDude')).toEqual('you are an incredible dude');
     });
   });
 
@@ -534,6 +534,56 @@ describe("Algie", function() {
     });
     it('f("o", "b", "a", 6) => "obaoba"', function() {
       expect(algie_niceDraw("o", "b", "a", 6)).toEqual("obaoba");
+    });
+  });
+
+  describe('algie_add2Dates', function() {
+    it('1st january 2000, added to 1st january 2000, gives 1st january 4000', function() {
+      var first_jan_2000 = new Date('January 1, 2000 00:00:01')
+      var year0 = new Date(first_jan_2000.getTime());
+      year0.setFullYear(0);
+      expect(algie_add2Dates(first_jan_2000, first_jan_2000)).toEqual("foo");
+    });
+    it('1st january 2000, added to 1st january 3000, gives 1st january 5000', function() {
+      var first_jan_2000 = new Date('January 1, 2000 00:00:01')
+      var first_jan_3000 = new Date('January 1, 3000 00:00:01')
+      expect(algie_add2Dates(first_jan_2000, first_jan_3000)).toEqual("foo");
+    });
+  });
+
+  describe('algie_fireLangage. After each vowel, add a "f", followed by the vowel', function() {
+    it('f("a") => "afa"', function() {
+      expect(algie_fireLangage("a")).toEqual("afa");
+    });
+    it('f("hello") => "hefellofo"', function() {
+      expect(algie_fireLangage("hello")).toEqual("hefellofo");
+    });
+    it('f("hello world") => "hefellofo woforld"', function() {
+      expect(algie_fireLangage("hello world")).toEqual("hefellofo woforld");
+    });
+  });
+
+  describe('algie_mendeleiev. Return the symbol of a periodic table.', function() {
+    it('f("Hydrogen") => "H"', function() {
+      expect(algie_mendeleiev("Hydrogen")).toEqual("H");
+    });
+    it('f("Silicon") => "Si"', function() {
+      expect(algie_mendeleiev("Silicon")).toEqual("Si");
+    });
+    it('f("Scandium") => "Sc"', function() {
+      expect(algie_mendeleiev("Scandium")).toEqual("Sc");
+    });
+    it('f("Cesium") => "Cs"', function() {
+      expect(algie_mendeleiev("Cesium")).toEqual("Cs");
+    });
+  });
+
+  describe('algie_mergeHashes. For two hashes of the same size, whose keys are sorted in alphabetical order, return a hash that have keys of 1st hash but values of second hash', function() {
+    it('f({a:1}, {e:8}) => {a:8}', function() {
+      expect(algie_mergeHashes({a:1}, {e:8})).toEqual({a:8});
+    });
+    it('f({z:1, j:3}, {m:4,b:9}) => {j:9,z:4}', function() {
+      expect(algie_mergeHashes({a:1}, {e:8})).toEqual({a:8});
     });
   });
 
