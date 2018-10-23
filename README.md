@@ -1,41 +1,26 @@
 # Train your algorithm skills
 
-TDD based, beginner friendly, zero installation process
+Read the motivation, usage and best practice here : https://bdavidxyz.github.io/algie/index.html
 
-## Usage
+All the specs can be seen here : https://bdavidxyz.github.io/algie/spec.html
 
-Download or clone this Github repository.
+## Installation
 
-Open index.html to see the specs.
+<ol>
+  <li>Download or clone repository</li>
+  <li>Open spec.html</li>
+  <li>Modify src/Algie.js</li>
+  <li>Refresh spec.html in the browser</li>
+  <li>Repeat from step 2 until all tests pass</li>
+</ol>
 
-Modify src/Algie, and reload index.html, until all tests are green
+### View or modify specifications
 
-## How to teach algorithm to your student
+Code is under spec/AlgieSpec.js
 
- - Learn him/her to google around if the problem has already been solved somewhere
- - If not, learn him/her to break the problem into a suit of smaller problems
- - Learn him/her to google around each of the smaller problem, to see if this smaller problem has already been solved somewhere
- - If not, learn him/her how to use Stackoverflow.
- - Learn him/her how to find and use other channels than Stackoverflow.
- - Learn him/her to rely a lot on librairies. In JavaScript, Lodash is very efficient to solve algorithms problems.
- - Learn him/her a more functional approach, which is more robust and efficient.
- - Learn him/her not to be afraid of huge chunk of code or API response. This is how it happens in the real world, and "huge" doesn't necesseraly mean "more difficult".
- - Learn him/her to commit very frequently, so that you, as teacher, can follow how the progression was made.
- - Learn him/her to use TDD with at least 2 examples on the "nominal path".
- - Learn him/her to use TDD with weird cases.
- - Learn him/her to think about incomplete spec.
- - Learn him/her to think about side-effects.
- - Learn him/her how to debug efficiently.
- - Learn him/her to train every day.
- - Learn him/her not to do too difficult task when training, because this won't help.
- - Learn him/her not to do too easy task when training, because he/she won't learn anything new.
- - Discuss with him/her about the solution and how to improve it.
- - Make him/her redo an exercice that was already solved a few weeks ago.
+### External librairies
 
-## Motivation
+Lodash is already included to help you.
 
-There are already tons of website about algorithm exercising.
+You can add any other lib by adding a script tag in the head section of spec.html
 
- - it is open-sourced : you can add exercices as you wish,
- - most problems are extracted from real-world projects,
- - even if problems can only be solved in JavaScript, they are not JavaScript related. You can use the spec to train in another language.
