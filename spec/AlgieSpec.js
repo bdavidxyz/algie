@@ -449,18 +449,15 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_divisorsOf. Find the highest divisor of given numbers (excerpt themself)", function() {
-    it("10 can be divided by 1, 2, 5, 10. Therefore, f(10) return [[5, 2]]", function() {
-      expect(algie_divisorsOf(10)).toEqual([[5, 2]]);
+  describe("algie_findMultiplicators. Find the highest divisor of given number (excerpt itself), and return the 2 numbers, when multiplied, give the one given in parameter.", function() {
+    it("10 can be divided by 1, 2, 5, 10. Therefore, f(10) return [5, 2]", function() {
+      expect(algie_findMultiplicators(10)).toEqual([5, 2]);
     });
-    it("33 can be divided by 1, 3, 11, 33. Therefore, f(33) return [[11, 3]]", function() {
-      expect(algie_divisorsOf(33)).toEqual([[11, 3]]);
+    it("33 can be divided by 1, 3, 11, 33. Therefore, f(33) return [11, 3]", function() {
+      expect(algie_findMultiplicators(33)).toEqual([11, 3]);
     });
-    it("49 and can be divided by [1, 7, 49]. And 9 can be divided by [1, 3, 9]. Therefore, f(49, 9) return [[7, 7], [3, 3]]", function() {
-      expect(algie_divisorsOf(49, 9)).toEqual([[7, 7], [3, 3]]);
-    });
-    it("2 and can be divided by [1, 2]. And 4 can be divided by [1, 2, 4]. Therefore, f(2, 4) return [[1, 2], [2, 2]]", function() {
-      expect(algie_divisorsOf(2, 4)).toEqual([[1, 2], [2, 2]]);
+    it("49 and can be divided by 1, 7, 49. Therefore, f(49) return [7, 7]", function() {
+      expect(algie_findMultiplicators(49)).toEqual([7, 7]);
     });
   });
 
@@ -522,6 +519,18 @@ describe("Algie", function() {
     });
     it('Last param is optional', function() {
       expect(algie_resetAllKeysBut({a:1, b:2, c:3}, "c")).toEqual({a:undefined, b:undefined, c:3});
+    });
+  });
+
+  describe('algie_niceDraw', function() {
+    it('f("*", "-", 4) => "*-*-"', function() {
+      expect(algie_niceDraw("*", "-", 4)).toEqual("*-*-");
+    });
+    it('f("o", "a", 3) => "oao"', function() {
+      expect(algie_niceDraw("o", "a", 3)).toEqual("oao");
+    });
+    it('f("o", "b", "a", 6) => "obaoba"', function() {
+      expect(algie_niceDraw("o", "b", "a", 6)).toEqual("obaoba");
     });
   });
 
