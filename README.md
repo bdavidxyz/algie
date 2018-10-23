@@ -1,4 +1,4 @@
-# Train your algorithm skills with Javascript
+# Train your algorithm skills
 
 TDD based, beginner friendly, zero installation process
 
