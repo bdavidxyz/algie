@@ -617,15 +617,21 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_initials. ', function() {
-    it('f("accessibility") => "a11y"', function() {
-      expect(algie_simplifyWord("accessibility")).toEqual("a11y");
+  describe('algie_initials.', function() {
+    it('f("hello world") => "HW"', function() {
+      expect(algie_initials("hello world")).toEqual("HW");
     });
-    it('f("internationalization") => "i18n"', function() {
-      expect(algie_simplifyWord("internationalization")).toEqual("i18n");
+    it('f("One great journey") => "OGJ"', function() {
+      expect(algie_simplifyWord("One great journey")).toEqual("OGJ");
     });
-    it('f("aaa") => "a1a"', function() {
-      expect(algie_simplifyWord("aaa")).toEqual("a1a");
+  });
+
+  describe('algie_actualMatches. Returns the number of elements that exactly match (i.e. same value same position), and the number of element that doesn\'t (ie value match, but not position)', function() {
+    it('f([1, 2, 2, 1, 0], [1, 3, 3, 4, 5]) => "1 exact match and 0 incorrect match"', function() {
+      expect(algie_actualMatches([1, 2, 2, 1, 0], [1, 3, 3, 4, 5])).toEqual("1 exact match and 0 incorrect match");
+    });
+    it('f([1, 2, 2], [2, 1, 2]) => "1 exact match and 2 incorrect match"', function() {
+      expect(algie_actualMatches([1, 2, 2], [2, 1, 2])).toEqual("1 exact match and 2 incorrect match");
     });
   });
 
