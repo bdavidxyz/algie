@@ -594,6 +594,12 @@ describe("Algie", function() {
     it('f("zzooooppammmmmm") => "mmmmmmooooppzza"', function() {
       expect(algie_sortByConsecutive("zzooooppammmmmm")).toEqual("mmmmmmooooppzza");
     });
+    it('f("zac") => "acz"', function() {
+      expect(algie_sortByConsecutive("zac")).toEqual("acz");
+    });
+    it('f("zacc") => "acz"', function() {
+      expect(algie_sortByConsecutive("zacc")).toEqual("ccaz");
+    });
   });
 
   describe('algie_lastWillBeFirst. Invert first and last element of an array', function() {
@@ -632,6 +638,12 @@ describe("Algie", function() {
     });
     it('f([1, 2, 2], [2, 1, 2]) => "1 exact match and 2 incorrect match"', function() {
       expect(algie_actualMatches([1, 2, 2], [2, 1, 2])).toEqual("1 exact match and 2 incorrect match");
+    });
+    it('f([0, 1], [2, 2]) => "0 exact match and 0 incorrect match"', function() {
+      expect(algie_actualMatches([0, 1], [2, 2])).toEqual("0 exact match and 0 incorrect match");
+    });
+    it('f([0, 1], [1, 2]) => "0 exact match and 1 incorrect match"', function() {
+      expect(algie_actualMatches([0, 1], [1, 2])).toEqual("0 exact match and 1 incorrect match");
     });
   });
 
