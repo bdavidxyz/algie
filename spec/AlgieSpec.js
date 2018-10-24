@@ -405,7 +405,7 @@ describe("Algie", function() {
     it("[0, 1, 4] becomes [true, true, false, false, true]", function() {
       expect(algie_arrayOfBoolean([0, 1, 4])).toEqual([true, true, false, false, true]);
     });
-    it("[5] becomes [true, true, false, false, false, true]", function() {
+    it("[5] becomes [false, false, false, false, false, true]", function() {
       expect(algie_arrayOfBoolean([5])).toEqual([false, false, false, false, false, true]);
     });
   });
