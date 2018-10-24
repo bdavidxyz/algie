@@ -1,12 +1,12 @@
-algie_42 = function() {
+function algie_42() {
   // This already works, but this is more a basic example than something you would encounter on real projects.
   return 42;
 };
 
-algie_allMultiplyBy =  function(array, number) {
+function algie_allMultiplyBy(array, number) {
   // Write function here
 }
 
-algie_generateWord = function() {
+function algie_generateWord() {
   // return "zaropi"
 }
