@@ -668,5 +668,16 @@ describe("Algie", function() {
     });
   });
 
+  describe('algie_closestOf2000. Find the Date that is closest to the 1st Jan. 2000', function() {
+    it('03.13.2006, 06.13.1995, 12.08.2012, 05.03.2019 => The 2nd Date is closest to 1st Jan. 2000', function() {
+      var found_date = algie_closestOf2000([new Date('March 13, 2006 03:24:00'), new Date('June 13, 1995 03:24:00'), new Date('December 8, 2012 03:24:00'), new Date('May 3, 2019 03:24:00')]);
+      expect(found_date.getTime()).toEqual(803006640000); // June 13, 1995 03:24:00
+    });
+    it('02.02.1997, 02.02.1998, 02.02.1999, 01.01.1999 => The 3rd Date is closest to 1st Jan. 2000', function() {
+      var found_date = algie_closestOf2000([new Date('February 02, 1997 03:24:00'), new Date('February 02, 1998 03:24:00'), new Date('February 02, 1999 03:24:00'), new Date('January 01, 1999 03:24:00')]);
+      expect(found_date.getTime()).toEqual(917922240000); // February 02, 1999 03:24:00
+    });
+  });
+
 });
 
