@@ -666,6 +666,9 @@ describe("Algie", function() {
     it('5 becomes "43210"', function() {
       expect(algie_printToZero(5)).toEqual(43210);
     });
+    it('-12 becomes "-11-10-9-8-7-6-5-4-3-2-10"', function() {
+      expect(algie_printToZero(-12)).toEqual("-11-10-9-8-7-6-5-4-3-2-10");
+    });
   });
 
   describe('algie_closestOf2000. Find the Date that is closest to the 1st Jan. 2000', function() {
