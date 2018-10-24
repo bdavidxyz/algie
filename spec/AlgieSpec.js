@@ -647,5 +647,26 @@ describe("Algie", function() {
     });
   });
 
+  describe('algie_encryptSentence', function() {
+    it('"a bc" is transformed into "1 2-3"', function() {
+      expect(algie_encryptSentence("a bc")).toEqual("1 2-3");
+    });
+    it('"aa BBB" is transformed into "1-1 2-2-2"', function() {
+      expect(algie_encryptSentence("aa BBB")).toEqual("1-1 2-2-2");
+    });
+    it('"e êÉ" is transformed into "5 5-5"', function() {
+      expect(algie_encryptSentence("e êÉ")).toEqual("5 5-5");
+    });
+  });
+
+  describe('algie_printToZero', function() {
+    it('8 becomes "76543210"', function() {
+      expect(algie_printToZero(8)).toEqual(76543210);
+    });
+    it('5 becomes "43210"', function() {
+      expect(algie_printToZero(5)).toEqual(43210);
+    });
+  });
+
 });
 
