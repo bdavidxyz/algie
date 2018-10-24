@@ -1,13 +1,13 @@
 describe("Algie", function() {
 
-  describe("algie_42", function() {
+  describe("(difficulty 0) algie_42", function() {
     it("should return 42", function() {
       expect(algie_42()).toEqual(42);
     });
   });
 
 
-  describe("algie_camelCaseToSentence", function() {
+  describe("(difficulty 2) algie_camelCaseToSentence", function() {
     it("should convert 'GlobalWarning' into 'global warning'", function() {
       expect(algie_camelCaseToSentence('GlobalWarning')).toEqual('global warning');
     });
@@ -16,7 +16,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_allMultiplyBy", function() {
+  describe("(difficulty 1) algie_allMultiplyBy", function() {
     it("should convert [1, 2, 3] into [2, 4, 6] when all elements are multiplied by 2", function() {
       expect(algie_allMultiplyBy([1, 2, 3], 2)).toEqual([2, 4, 6]);
     });
@@ -25,7 +25,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_multiplyEach", function() {
+  describe("(difficulty 2) algie_multiplyEach", function() {
     it("[1, 2, 3] multiplied by [1, 2, 3] gives [1, 4, 9]", function() {
       expect(algie_multiplyEach([1, 2, 3], [1, 2, 3])).toEqual([1, 4, 9]);
     });
@@ -37,7 +37,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_reversedIndex", function() {
+  describe("(difficulty 1) algie_reversedIndex", function() {
     it("should return the last element of array for index 0", function() {
       expect(algie_reversedIndex([1, 2, 3, 4], 0)).toEqual(4);
     });
@@ -50,7 +50,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_completeWith. Complete array until given size, with given constant", function() {
+  describe("(difficulty 2) algie_completeWith. Complete array until given size, with given constant", function() {
     it("For example, [1, 2, 3] must have a size of 5. If not, complete with 42. Therefore, the final result should be [1, 2, 3, 42, 42]", function() {
       expect(algie_completeWith([1, 2, 3], 5, 42)).toEqual([1, 2, 3, 42, 42]);
     });
@@ -59,7 +59,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_elementAfter", function() {
+  describe("(difficulty 2) algie_elementAfter", function() {
     it("element after 9 in array [8, 9, 33] is 33", function() {
       expect(algie_elementAfter([8, 9, 33], 9)).toEqual(33);
     });
@@ -71,7 +71,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_insertEverywhere", function() {
+  describe("(difficulty 2) algie_insertEverywhere", function() {
     it("'me' with 'b' everywhere will become 'bmbeb'", function() {
       expect(algie_insertEverywhere('foo', 'A')).toEqual('AfAoAoA');
     });
@@ -80,7 +80,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_noneOf", function() {
+  describe("(difficulty 1) algie_noneOf", function() {
     it("Should return true if all values inside array are false", function() {
       expect(algie_noneOf([false, false, false])).toEqual(true);
     });
@@ -104,7 +104,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_fewOf", function() {
+  describe("(difficulty 2) algie_fewOf", function() {
     it("Should return true if some (but not all) values inside array are true", function() {
       expect(algie_fewOf([true, true, false])).toEqual(true);
     });
@@ -124,7 +124,7 @@ describe("Algie", function() {
 
 
 
-  describe("algie_cupsRepartition", function() {
+  describe("(difficulty 4) algie_cupsRepartition", function() {
     it("Should give each kid the same number of cups, for example 2 kids with 8 cups", function() {
       expect(algie_cupsRepartition([
           {name: "bob", cups:1},
@@ -158,7 +158,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_arrayWithSameValues", function() {
+  describe("(difficulty 3) algie_arrayWithSameValues", function() {
     it("Should return true if given arrays are the same", function() {
       expect(algie_arrayWithSameValues([1, 5, 2], [1, 5, 2])).toEqual(true);
     });
@@ -182,7 +182,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_beforeMax", function() {
+  describe("(difficulty 2) algie_beforeMax", function() {
     it("Should find a high number, the one before the maximum, in an array with numbers", function() {
       expect(algie_beforeMax([1, 5, 4, 3, 65, 23, 42, 55, 12])).toEqual(55);
     });
@@ -194,7 +194,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_toPropArray", function() {
+  describe("(difficulty 3) algie_toPropArray", function() {
     it("transforms {a:11, b:42} into [{prop:'a', value:11}, {prop:'b', value:42}]", function() {
       expect(algie_toPropArray({a:11, b:42})).toEqual([{prop:'a', value:11}, {prop:'b', value:42}]);
     });
@@ -203,7 +203,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_fromPropArray", function() {
+  describe("(difficulty 3) algie_fromPropArray", function() {
     it("transforms [{prop:'a', value:'11'}, {prop:'b', value:'42'}] into {a:11, b:42}", function() {
       expect(algie_fromPropArray([{prop:'a', value:'11'}, {prop:'b', value:'42'}])).toEqual({a:11, b:42});
     });
@@ -212,7 +212,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_missingNumber", function() {
+  describe("(difficulty 3) algie_missingNumber", function() {
     it("In the 2-dimensional array [['-1', '-2', '1'], [], ['2']], the missing number is 0", function() {
       expect(algie_missingNumber([['-1', '-2', '1'], [], ['2']])).toEqual(0);
     });
@@ -224,7 +224,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_generateWord", function() {
+  describe("(difficulty 2) algie_generateWord", function() {
     it("A call to the function generate a word, size 6", function() {
       expect(algie_generateWord().length).toEqual(6);
     });
@@ -251,7 +251,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_cutAndMultiplyNumber", function() {
+  describe("(difficulty 2) algie_cutAndMultiplyNumber", function() {
     it("42 is made of 4 and 2. Therefore, function must return 8 (4*2)", function() {
       expect(algie_cutAndMultiplyNumber(42)).toEqual(8);
     });
@@ -266,7 +266,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_isArrayOfString", function() {
+  describe("(difficulty 1) algie_isArrayOfString", function() {
     it("should return true if there are only strings in a simple array", function() {
       expect(algie_isArrayOfString(["a", "b", "c"])).toEqual(true);
     });
@@ -284,7 +284,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_maxOfConsecutiveInArray", function() {
+  describe("(difficulty 3) algie_maxOfConsecutiveInArray", function() {
     it("should return 3 when there is 3 consecutive elements in array", function() {
       expect(algie_maxOfConsecutiveInArray(["a", "a", "c", "c", "c", "z"])).toEqual(3);
     });
@@ -299,7 +299,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_stringToHash", function() {
+  describe("(difficulty 2) algie_stringToHash", function() {
     it("should convert sentence 'hello abc' to hash {hello:{vowels:2, consonants:3}, abc:{vowels:1, consonants:2}}", function() {
       expect(algie_stringToHash('hello abc')).toEqual({hello:{vowels:2, consonants:3}, abc:{vowels:1, consonants:2}});
     });
@@ -308,7 +308,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_indexHash. It returns the element whose key is in nth position in the alphabetical order", function() {
+  describe("(difficulty 2) algie_indexHash. It returns the element whose key is in nth position in the alphabetical order", function() {
     it("Should return 22 with hash {a:11, b:22, c:33}, and index 1", function() {
       expect(algie_indexHash({a:11, b:22, c:33}, 1)).toEqual(22);
     });
@@ -326,7 +326,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_stripCommonPath", function() {
+  describe("(difficulty 3) algie_stripCommonPath", function() {
     it("['/myDir/a.txt', '/myDir/b.txt', '/myDir/c.txt'] becomes ['/a.txt', '/b.txt', '/c.txt'] because /myDir is the common path", function() {
       expect(algie_stripCommonPath(['/myDir/a.txt', '/myDir/b.txt', '/myDir/c.txt'])).toEqual(['/a.txt', '/b.txt', '/c.txt']);
     });
@@ -335,7 +335,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_swapByPair", function() {
+  describe("(difficulty 3) algie_swapByPair", function() {
     it("['a', 'b'] becomes ['b', 'a']", function() {
       expect(algie_swapByPair(['a', 'b'])).toEqual(['b', 'a']);
     });
@@ -347,7 +347,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_hideThat. Hides every char between first and last char.", function() {
+  describe("(difficulty 2) algie_hideThat. Hides every char between first and last char.", function() {
     it("'hello' becomes 'h***o'", function() {
       expect(algie_hideThat('hello')).toEqual('h***o');
     });
@@ -365,7 +365,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_ordinalSuffix", function() {
+  describe("(difficulty 1) algie_ordinalSuffix", function() {
     it("should return 'st' if given number ends with 1", function() {
       expect(algie_ordinalSuffix(141)).toEqual('st');
     });
@@ -389,7 +389,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_largestString", function() {
+  describe("(difficulty 2) algie_largestString", function() {
     it("returns the largest String in an array of String (example 1)", function() {
       expect(algie_largestString(["axel", "bob", "alice", "olaf"])).toEqual("alice");
     });
@@ -398,7 +398,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_arrayOfBoolean. Given an array of numbers, returns an array of boolean. If the number exist in the first array, then resulting_array[number] = true. All other elements in resulting array are false.", function() {
+  describe("(difficulty 3) algie_arrayOfBoolean. Given an array of numbers, returns an array of boolean. If the number exist in the first array, then resulting_array[number] = true. All other elements in resulting array are false.", function() {
     it("[0, 2] becomes [true, false, true]", function() {
       expect(algie_arrayOfBoolean([0, 2])).toEqual([true, false, true]);
     });
@@ -410,7 +410,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_numbersAfter", function() {
+  describe("(difficulty 2) algie_numbersAfter", function() {
     it("returns the 6 next numbers after a given number (example 1)", function() {
       expect(algie_numbersAfter(23)).toEqual([24, 25, 26, 27, 28, 29]);
     });
@@ -419,7 +419,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_dirtyString", function() {
+  describe("(difficulty 2) algie_dirtyString", function() {
     it("convert a badly formatted string in an array of ordered numbers without duplication (example 1)", function() {
       expect(algie_dirtyString(',4, 2 , 2,1,  ,')).toEqual([1, 2, 4]);
     });
@@ -434,7 +434,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_isDecreasing", function() {
+  describe("(difficulty 2) algie_isDecreasing", function() {
     it("returns true if the args are decreasing (example 1)", function() {
       expect(algie_isDecreasing(5, 4, 3, 2)).toEqual(true);
     });
@@ -449,7 +449,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("algie_findMultiplicators. Find the highest divisor of given number (excerpt itself), and return the 2 numbers, when multiplied, give the one given in parameter.", function() {
+  describe("(difficulty 2) algie_findMultiplicators. Find the highest divisor of given number (excerpt itself), and return the 2 numbers, when multiplied, give the one given in parameter.", function() {
     it("10 can be divided by 1, 2, 5, 10. Therefore, f(10) return [5, 2]", function() {
       expect(algie_findMultiplicators(10)).toEqual([5, 2]);
     });
@@ -461,7 +461,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_fooBarQixZzz. Returns "foo" if number can be divided by 3, "bar" by 5, "qix" by 15, "zzz" in every other case', function() {
+  describe('(difficulty 2) algie_fooBarQixZzz. Returns "foo" if number can be divided by 3, "bar" by 5, "qix" by 15, "zzz" in every other case', function() {
     it('should return "foo" for 3 or 9', function() {
       expect(algie_fooBarQixZzz(3)).toEqual("foo");
       expect(algie_fooBarQixZzz(9)).toEqual("foo");
@@ -481,7 +481,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_occurencesOf', function() {
+  describe('(difficulty 3) algie_occurencesOf', function() {
     it('"aba" should be converted into {a:2, b:1}', function() {
       expect(algie_occurencesOf("aba")).toEqual({a:2, b:1});
     });
@@ -493,7 +493,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_zodiac', function() {
+  describe('(difficulty 3) algie_zodiac', function() {
     it('13th of march is pisces', function() {
       var date = new Date('March 13, 1995 03:24:00');
       expect(algie_zodiac(date)).toEqual("pisces");
@@ -504,7 +504,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_resetAllKeysBut. Reset all keys of a hash, excerpt one', function() {
+  describe('(difficulty 3) algie_resetAllKeysBut. Reset all keys of a hash, excerpt one', function() {
     it('f({a:1, b:2, c:3}, "b", 0) should be {a:0, b:2, c:0}', function() {
       expect(algie_resetAllKeysBut({a:1, b:2, c:3}, "b", 0)).toEqual({a:0, b:2, c:0});
     });
@@ -522,7 +522,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_niceDraw', function() {
+  describe('(difficulty 2) algie_niceDraw', function() {
     it('f("*", "-", 2) => "*-"', function() {
       expect(algie_niceDraw("*", "-", 2)).toEqual("*-");
     });
@@ -537,7 +537,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_add2Dates', function() {
+  describe('(difficulty 3) algie_add2Dates', function() {
     it('1st january 2000, added to 1st january 2000, gives 1st january 4000', function() {
       var first_jan_2000 = new Date('January 1, 2000 00:00:01')
       var year0 = new Date(first_jan_2000.getTime());
@@ -551,7 +551,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_fireLangage. After each vowel, add a "f", followed by the vowel', function() {
+  describe('(difficulty 3) algie_fireLangage. After each vowel, add a "f", followed by the vowel', function() {
     it('f("a") => "afa"', function() {
       expect(algie_fireLangage("a")).toEqual("afa");
     });
@@ -563,7 +563,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_mendeleiev. Return the symbol of a periodic table.', function() {
+  describe('(difficulty 2) algie_mendeleiev. Return the symbol of a periodic table.', function() {
     it('f("Hydrogen") => "H"', function() {
       expect(algie_mendeleiev("Hydrogen")).toEqual("H");
     });
@@ -578,7 +578,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_mergeHashes. For two hashes of the same size, whose keys are sorted in alphabetical order, return a hash that have keys of 1st hash but values of second hash', function() {
+  describe('(difficulty 3) algie_mergeHashes. For two hashes of the same size, whose keys are sorted in alphabetical order, return a hash that have keys of 1st hash but values of second hash', function() {
     it('f({a:1}, {e:8}) => {a:8}', function() {
       expect(algie_mergeHashes({a:1}, {e:8})).toEqual({a:8});
     });
@@ -587,22 +587,8 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_sortByConsecutive. Sort a string so that char that have the most consecutive elements appears first.', function() {
-    it('f("bbaaa") => "aaabb"', function() {
-      expect(algie_sortByConsecutive("bbaaa")).toEqual("aaabb");
-    });
-    it('f("zzooooppammmmmm") => "mmmmmmooooppzza"', function() {
-      expect(algie_sortByConsecutive("zzooooppammmmmm")).toEqual("mmmmmmooooppzza");
-    });
-    it('f("zac") => "acz"', function() {
-      expect(algie_sortByConsecutive("zac")).toEqual("acz");
-    });
-    it('f("zacc") => "acz"', function() {
-      expect(algie_sortByConsecutive("zacc")).toEqual("ccaz");
-    });
-  });
 
-  describe('algie_lastWillBeFirst. Invert first and last element of an array', function() {
+  describe('(difficulty 2) algie_lastWillBeFirst. Invert first and last element of an array', function() {
     it('f([1, 2, 3, 4]) => [4, 2, 3, 1]', function() {
       expect(algie_lastWillBeFirst("[1, 2, 3, 4]")).toEqual("[4, 2, 3, 1]");
     });
@@ -611,7 +597,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_simplifyWord. Returns first and last character of a string, and the number of character between.', function() {
+  describe('(difficulty 2) algie_simplifyWord. Returns first and last character of a string, and the number of character between.', function() {
     it('f("accessibility") => "a11y"', function() {
       expect(algie_simplifyWord("accessibility")).toEqual("a11y");
     });
@@ -623,7 +609,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_initials.', function() {
+  describe('(difficulty 2) algie_initials', function() {
     it('f("hello world") => "HW"', function() {
       expect(algie_initials("hello world")).toEqual("HW");
     });
@@ -632,7 +618,43 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_actualMatches. Returns the number of elements that exactly match (i.e. same value same position), and the number of element that doesn\'t (ie value match, but not position)', function() {
+
+
+  describe('(difficulty 2) algie_printToZero', function() {
+    it('8 becomes "76543210"', function() {
+      expect(algie_printToZero(8)).toEqual(76543210);
+    });
+    it('5 becomes "43210"', function() {
+      expect(algie_printToZero(5)).toEqual(43210);
+    });
+    it('-12 becomes "-11-10-9-8-7-6-5-4-3-2-10"', function() {
+      expect(algie_printToZero(-12)).toEqual("-11-10-9-8-7-6-5-4-3-2-10");
+    });
+  });
+
+  describe('(difficulty 3) algie_closestOf2000. Find the Date that is closest to the 1st Jan. 2000', function() {
+    it('03.13.2006, 06.13.1995, 12.08.2012, 05.03.2019 => The 2nd Date is closest to 1st Jan. 2000', function() {
+      var found_date = algie_closestOf2000([new Date('March 13, 2006 03:24:00'), new Date('June 13, 1995 03:24:00'), new Date('December 8, 2012 03:24:00'), new Date('May 3, 2019 03:24:00')]);
+      expect(found_date.getTime()).toEqual(803006640000); // June 13, 1995 03:24:00
+    });
+    it('02.02.1997, 02.02.1998, 02.02.1999, 01.01.1999 => The 3rd Date is closest to 1st Jan. 2000', function() {
+      var found_date = algie_closestOf2000([new Date('February 02, 1997 03:24:00'), new Date('February 02, 1998 03:24:00'), new Date('February 02, 1999 03:24:00'), new Date('January 01, 1999 03:24:00')]);
+      expect(found_date.getTime()).toEqual(917922240000); // February 02, 1999 03:24:00
+    });
+  });
+
+  describe('(difficulty 3) algie_encryptSentence', function() {
+    it('"a bc" is transformed into "1 2-3"', function() {
+      expect(algie_encryptSentence("a bc")).toEqual("1 2-3");
+    });
+    it('"aa BBB" is transformed into "1-1 2-2-2"', function() {
+      expect(algie_encryptSentence("aa BBB")).toEqual("1-1 2-2-2");
+    });
+    it('"e êÉ" is transformed into "5 5-5"', function() {
+      expect(algie_encryptSentence("e êÉ")).toEqual("5 5-5");
+    });
+  });
+  describe('(difficulty 4) algie_actualMatches. Returns the number of elements that exactly match (i.e. same value same position), and the number of element that doesn\'t (ie value match, but not position)', function() {
     it('f([1, 2, 2, 1, 0], [1, 3, 3, 4, 5]) => "1 exact match and 0 incorrect match"', function() {
       expect(algie_actualMatches([1, 2, 2, 1, 0], [1, 3, 3, 4, 5])).toEqual("1 exact match and 0 incorrect match");
     });
@@ -647,40 +669,19 @@ describe("Algie", function() {
     });
   });
 
-  describe('algie_encryptSentence', function() {
-    it('"a bc" is transformed into "1 2-3"', function() {
-      expect(algie_encryptSentence("a bc")).toEqual("1 2-3");
+  describe('(difficulty 4) algie_sortByConsecutive. Sort a string so that char that have the most consecutive elements appears first.', function() {
+    it('f("bbaaa") => "aaabb"', function() {
+      expect(algie_sortByConsecutive("bbaaa")).toEqual("aaabb");
     });
-    it('"aa BBB" is transformed into "1-1 2-2-2"', function() {
-      expect(algie_encryptSentence("aa BBB")).toEqual("1-1 2-2-2");
+    it('f("zzooooppammmmmm") => "mmmmmmooooppzza"', function() {
+      expect(algie_sortByConsecutive("zzooooppammmmmm")).toEqual("mmmmmmooooppzza");
     });
-    it('"e êÉ" is transformed into "5 5-5"', function() {
-      expect(algie_encryptSentence("e êÉ")).toEqual("5 5-5");
+    it('f("zac") => "acz"', function() {
+      expect(algie_sortByConsecutive("zac")).toEqual("acz");
     });
-  });
-
-  describe('algie_printToZero', function() {
-    it('8 becomes "76543210"', function() {
-      expect(algie_printToZero(8)).toEqual(76543210);
-    });
-    it('5 becomes "43210"', function() {
-      expect(algie_printToZero(5)).toEqual(43210);
-    });
-    it('-12 becomes "-11-10-9-8-7-6-5-4-3-2-10"', function() {
-      expect(algie_printToZero(-12)).toEqual("-11-10-9-8-7-6-5-4-3-2-10");
+    it('f("zacc") => "acz"', function() {
+      expect(algie_sortByConsecutive("zacc")).toEqual("ccaz");
     });
   });
-
-  describe('algie_closestOf2000. Find the Date that is closest to the 1st Jan. 2000', function() {
-    it('03.13.2006, 06.13.1995, 12.08.2012, 05.03.2019 => The 2nd Date is closest to 1st Jan. 2000', function() {
-      var found_date = algie_closestOf2000([new Date('March 13, 2006 03:24:00'), new Date('June 13, 1995 03:24:00'), new Date('December 8, 2012 03:24:00'), new Date('May 3, 2019 03:24:00')]);
-      expect(found_date.getTime()).toEqual(803006640000); // June 13, 1995 03:24:00
-    });
-    it('02.02.1997, 02.02.1998, 02.02.1999, 01.01.1999 => The 3rd Date is closest to 1st Jan. 2000', function() {
-      var found_date = algie_closestOf2000([new Date('February 02, 1997 03:24:00'), new Date('February 02, 1998 03:24:00'), new Date('February 02, 1999 03:24:00'), new Date('January 01, 1999 03:24:00')]);
-      expect(found_date.getTime()).toEqual(917922240000); // February 02, 1999 03:24:00
-    });
-  });
-
 });
 
