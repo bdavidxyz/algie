@@ -491,20 +491,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('(difficulty 2) algie_mendeleiev. Return the symbol of a periodic table.', function() {
-    it('f("Hydrogen") => "H"', function() {
-      expect(algie_mendeleiev("Hydrogen")).toEqual("H");
-    });
-    it('f("Silicon") => "Si"', function() {
-      expect(algie_mendeleiev("Silicon")).toEqual("Si");
-    });
-    it('f("Scandium") => "Sc"', function() {
-      expect(algie_mendeleiev("Scandium")).toEqual("Sc");
-    });
-    it('f("Cesium") => "Cs"', function() {
-      expect(algie_mendeleiev("Cesium")).toEqual("Cs");
-    });
-  });
+
 
   describe('(difficulty 2) algie_lastWillBeFirst. Invert first and last element of an array', function() {
     it('f([1, 2, 3, 4]) => [4, 2, 3, 1]', function() {
@@ -559,17 +546,7 @@ describe("Algie", function() {
     });
   });
 
-  describe('(difficulty 3) algie_encryptSentence', function() {
-    it('"a bc" is transformed into "1 2-3"', function() {
-      expect(algie_encryptSentence("a bc")).toEqual("1 2-3");
-    });
-    it('"aa BBB" is transformed into "1-1 2-2-2"', function() {
-      expect(algie_encryptSentence("aa BBB")).toEqual("1-1 2-2-2");
-    });
-    it('"e êÉ" is transformed into "5 5-5"', function() {
-      expect(algie_encryptSentence("e êÉ")).toEqual("5 5-5");
-    });
-  });
+ 
 
   describe('(difficulty 3) algie_add2Dates', function() {
     it('1st january 2000, added to 1st january 2000, gives 1st january 4000', function() {
@@ -591,6 +568,33 @@ describe("Algie", function() {
     });
     it('f({z:1, j:3}, {m:4,b:9}) => {j:9,z:4}', function() {
       expect(algie_mergeHashes({a:1}, {e:8})).toEqual({a:8});
+    });
+  });
+
+  describe('(difficulty 3) algie_mendeleiev. Return the symbol of a periodic table.', function() {
+    it('f("Hydrogen") => "H"', function() {
+      expect(algie_mendeleiev("Hydrogen")).toEqual("H");
+    });
+    it('f("Silicon") => "Si"', function() {
+      expect(algie_mendeleiev("Silicon")).toEqual("Si");
+    });
+    it('f("Scandium") => "Sc"', function() {
+      expect(algie_mendeleiev("Scandium")).toEqual("Sc");
+    });
+    it('f("Cesium") => "Cs"', function() {
+      expect(algie_mendeleiev("Cesium")).toEqual("Cs");
+    });
+  });
+
+  describe('(difficulty 3) algie_encryptSentence', function() {
+    it('"a bc" is transformed into "1 2-3"', function() {
+      expect(algie_encryptSentence("a bc")).toEqual("1 2-3");
+    });
+    it('"aa BBB" is transformed into "1-1 2-2-2"', function() {
+      expect(algie_encryptSentence("aa BBB")).toEqual("1-1 2-2-2");
+    });
+    it('"e êÉ" is transformed into "5 5-5"', function() {
+      expect(algie_encryptSentence("e êÉ")).toEqual("5 5-5");
     });
   });
 
