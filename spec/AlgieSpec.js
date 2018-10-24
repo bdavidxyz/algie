@@ -124,39 +124,6 @@ describe("Algie", function() {
 
 
 
-  describe("(difficulty 4) algie_cupsRepartition", function() {
-    it("Should give each kid the same number of cups, for example 2 kids with 8 cups", function() {
-      expect(algie_cupsRepartition([
-          {name: "bob", cups:1},
-          {name: "jen", cups:7}
-        ])).toEqual([
-          {name: "bob", cups:4},
-          {name: "jen", cups:4}
-        ]);
-    });
-    it("Should give each kid the same number of cups, for example 3 kids with 9 cups", function() {
-      expect(algie_cupsRepartition([
-          {name: "ken", cups:0},
-          {name: "dan", cups:4},
-          {name: "gor", cups:5}
-        ])).toEqual([
-          {name: "ken", cups:3},
-          {name: "dan", cups:3},
-          {name: "gor", cups:3}
-        ]);
-    });
-    it("Should give each kid the same number of cups, if not possible, kids with higher name in alphabet have 1 more cup.", function() {
-      expect(algie_cupsRepartition([
-          {name: "cod", cups:5},
-          {name: "alf", cups:4},
-          {name: "ben", cups:2}
-        ])).toEqual([
-          {name: "cod", cups:3},
-          {name: "alf", cups:4},
-          {name: "ben", cups:4}
-        ]);
-    });
-  });
 
   describe("(difficulty 3) algie_arrayWithSameValues", function() {
     it("Should return true if given arrays are the same", function() {
@@ -398,18 +365,6 @@ describe("Algie", function() {
     });
   });
 
-  describe("(difficulty 3) algie_arrayOfBoolean. Given an array of numbers, returns an array of boolean. If the number exist in the first array, then resulting_array[number] = true. All other elements in resulting array are false.", function() {
-    it("[0, 2] becomes [true, false, true]", function() {
-      expect(algie_arrayOfBoolean([0, 2])).toEqual([true, false, true]);
-    });
-    it("[0, 1, 4] becomes [true, true, false, false, true]", function() {
-      expect(algie_arrayOfBoolean([0, 1, 4])).toEqual([true, true, false, false, true]);
-    });
-    it("[5] becomes [false, false, false, false, false, true]", function() {
-      expect(algie_arrayOfBoolean([5])).toEqual([false, false, false, false, false, true]);
-    });
-  });
-
   describe("(difficulty 2) algie_numbersAfter", function() {
     it("returns the 6 next numbers after a given number (example 1)", function() {
       expect(algie_numbersAfter(23)).toEqual([24, 25, 26, 27, 28, 29]);
@@ -537,32 +492,6 @@ describe("Algie", function() {
     });
   });
 
-  describe('(difficulty 3) algie_add2Dates', function() {
-    it('1st january 2000, added to 1st january 2000, gives 1st january 4000', function() {
-      var first_jan_2000 = new Date('January 1, 2000 00:00:01')
-      var year0 = new Date(first_jan_2000.getTime());
-      year0.setFullYear(0);
-      expect(algie_add2Dates(first_jan_2000, first_jan_2000)).toEqual("foo");
-    });
-    it('1st january 2000, added to 1st january 3000, gives 1st january 5000', function() {
-      var first_jan_2000 = new Date('January 1, 2000 00:00:01')
-      var first_jan_3000 = new Date('January 1, 3000 00:00:01')
-      expect(algie_add2Dates(first_jan_2000, first_jan_3000)).toEqual("foo");
-    });
-  });
-
-  describe('(difficulty 3) algie_fireLangage. After each vowel, add a "f", followed by the vowel', function() {
-    it('f("a") => "afa"', function() {
-      expect(algie_fireLangage("a")).toEqual("afa");
-    });
-    it('f("hello") => "hefellofo"', function() {
-      expect(algie_fireLangage("hello")).toEqual("hefellofo");
-    });
-    it('f("hello world") => "hefellofo woforld"', function() {
-      expect(algie_fireLangage("hello world")).toEqual("hefellofo woforld");
-    });
-  });
-
   describe('(difficulty 2) algie_mendeleiev. Return the symbol of a periodic table.', function() {
     it('f("Hydrogen") => "H"', function() {
       expect(algie_mendeleiev("Hydrogen")).toEqual("H");
@@ -577,16 +506,6 @@ describe("Algie", function() {
       expect(algie_mendeleiev("Cesium")).toEqual("Cs");
     });
   });
-
-  describe('(difficulty 3) algie_mergeHashes. For two hashes of the same size, whose keys are sorted in alphabetical order, return a hash that have keys of 1st hash but values of second hash', function() {
-    it('f({a:1}, {e:8}) => {a:8}', function() {
-      expect(algie_mergeHashes({a:1}, {e:8})).toEqual({a:8});
-    });
-    it('f({z:1, j:3}, {m:4,b:9}) => {j:9,z:4}', function() {
-      expect(algie_mergeHashes({a:1}, {e:8})).toEqual({a:8});
-    });
-  });
-
 
   describe('(difficulty 2) algie_lastWillBeFirst. Invert first and last element of an array', function() {
     it('f([1, 2, 3, 4]) => [4, 2, 3, 1]', function() {
@@ -617,8 +536,6 @@ describe("Algie", function() {
       expect(algie_simplifyWord("One great journey")).toEqual("OGJ");
     });
   });
-
-
 
   describe('(difficulty 2) algie_printToZero', function() {
     it('8 becomes "76543210"', function() {
@@ -654,6 +571,53 @@ describe("Algie", function() {
       expect(algie_encryptSentence("e êÉ")).toEqual("5 5-5");
     });
   });
+
+  describe('(difficulty 3) algie_add2Dates', function() {
+    it('1st january 2000, added to 1st january 2000, gives 1st january 4000', function() {
+      var first_jan_2000 = new Date('January 1, 2000 00:00:01')
+      var year0 = new Date(first_jan_2000.getTime());
+      year0.setFullYear(0);
+      expect(algie_add2Dates(first_jan_2000, first_jan_2000)).toEqual("foo");
+    });
+    it('1st january 2000, added to 1st january 3000, gives 1st january 5000', function() {
+      var first_jan_2000 = new Date('January 1, 2000 00:00:01')
+      var first_jan_3000 = new Date('January 1, 3000 00:00:01')
+      expect(algie_add2Dates(first_jan_2000, first_jan_3000)).toEqual("foo");
+    });
+  });
+
+  describe('(difficulty 3) algie_mergeHashes. For two hashes of the same size, whose keys are sorted in alphabetical order, return a hash that have keys of 1st hash but values of second hash', function() {
+    it('f({a:1}, {e:8}) => {a:8}', function() {
+      expect(algie_mergeHashes({a:1}, {e:8})).toEqual({a:8});
+    });
+    it('f({z:1, j:3}, {m:4,b:9}) => {j:9,z:4}', function() {
+      expect(algie_mergeHashes({a:1}, {e:8})).toEqual({a:8});
+    });
+  });
+
+  describe("(difficulty 3) algie_arrayOfBoolean. Given an array of numbers, returns an array of boolean. If the number exist in the first array, then resulting_array[number] = true. All other elements in resulting array are false.", function() {
+    it("[0, 2] becomes [true, false, true]", function() {
+      expect(algie_arrayOfBoolean([0, 2])).toEqual([true, false, true]);
+    });
+    it("[0, 1, 4] becomes [true, true, false, false, true]", function() {
+      expect(algie_arrayOfBoolean([0, 1, 4])).toEqual([true, true, false, false, true]);
+    });
+    it("[5] becomes [false, false, false, false, false, true]", function() {
+      expect(algie_arrayOfBoolean([5])).toEqual([false, false, false, false, false, true]);
+    });
+  });
+
+  describe('(difficulty 3) algie_fireLangage. After each vowel, add a "f", followed by the vowel', function() {
+    it('f("a") => "afa"', function() {
+      expect(algie_fireLangage("a")).toEqual("afa");
+    });
+    it('f("hello") => "hefellofo"', function() {
+      expect(algie_fireLangage("hello")).toEqual("hefellofo");
+    });
+    it('f("hello world") => "hefellofo woforld"', function() {
+      expect(algie_fireLangage("hello world")).toEqual("hefellofo woforld");
+    });
+  });
   describe('(difficulty 4) algie_actualMatches. Returns the number of elements that exactly match (i.e. same value same position), and the number of element that doesn\'t (ie value match, but not position)', function() {
     it('f([1, 2, 2, 1, 0], [1, 3, 3, 4, 5]) => "1 exact match and 0 incorrect match"', function() {
       expect(algie_actualMatches([1, 2, 2, 1, 0], [1, 3, 3, 4, 5])).toEqual("1 exact match and 0 incorrect match");
@@ -681,6 +645,39 @@ describe("Algie", function() {
     });
     it('f("zacc") => "acz"', function() {
       expect(algie_sortByConsecutive("zacc")).toEqual("ccaz");
+    });
+  });
+  describe("(difficulty 4) algie_cupsRepartition", function() {
+    it("Should give each kid the same number of cups, for example 2 kids with 8 cups", function() {
+      expect(algie_cupsRepartition([
+          {name: "bob", cups:1},
+          {name: "jen", cups:7}
+        ])).toEqual([
+          {name: "bob", cups:4},
+          {name: "jen", cups:4}
+        ]);
+    });
+    it("Should give each kid the same number of cups, for example 3 kids with 9 cups", function() {
+      expect(algie_cupsRepartition([
+          {name: "ken", cups:0},
+          {name: "dan", cups:4},
+          {name: "gor", cups:5}
+        ])).toEqual([
+          {name: "ken", cups:3},
+          {name: "dan", cups:3},
+          {name: "gor", cups:3}
+        ]);
+    });
+    it("Should give each kid the same number of cups, if not possible, kids with higher name in alphabet have 1 more cup.", function() {
+      expect(algie_cupsRepartition([
+          {name: "cod", cups:5},
+          {name: "alf", cups:4},
+          {name: "ben", cups:2}
+        ])).toEqual([
+          {name: "cod", cups:3},
+          {name: "alf", cups:4},
+          {name: "ben", cups:4}
+        ]);
     });
   });
 });
