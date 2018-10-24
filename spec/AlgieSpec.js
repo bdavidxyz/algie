@@ -277,19 +277,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("(difficulty 3) algie_swapByPair", function() {
-    it("['a', 'b'] becomes ['b', 'a']", function() {
-      expect(algie_swapByPair(['a', 'b'])).toEqual(['b', 'a']);
-    });
-    it("['a', 'b', 'c', 'd'] becomes ['b', 'a', 'd', 'c']", function() {
-      expect(algie_swapByPair(['a', 'b', 'c', 'd'])).toEqual(['b', 'a', 'd', 'c']);
-    });
-    it("[1, 2, 3, 4, 5, 6] becomes [2, 1, 4, 3, 6, 5]", function() {
-      expect(algie_swapByPair([1, 2, 3, 4, 5, 6])).toEqual([2, 1, 4, 3, 6, 5]);
-    });
-  });
-
-  describe("(difficulty 2) algie_hideThat. Hides every char between first and last char.", function() {
+  describe("(difficulty 1) algie_hideThat. Hides every char between first and last char.", function() {
     it("'hello' becomes 'h***o'", function() {
       expect(algie_hideThat('hello')).toEqual('h***o');
     });
@@ -541,6 +529,18 @@ describe("Algie", function() {
     });
     it('Last param is optional', function() {
       expect(algie_resetAllKeysBut({a:1, b:2, c:3}, "c")).toEqual({a:undefined, b:undefined, c:3});
+    });
+  });
+
+  describe("(difficulty 3) algie_swapByPair", function() {
+    it("['a', 'b'] becomes ['b', 'a']", function() {
+      expect(algie_swapByPair(['a', 'b'])).toEqual(['b', 'a']);
+    });
+    it("['a', 'b', 'c', 'd'] becomes ['b', 'a', 'd', 'c']", function() {
+      expect(algie_swapByPair(['a', 'b', 'c', 'd'])).toEqual(['b', 'a', 'd', 'c']);
+    });
+    it("[1, 2, 3, 4, 5, 6] becomes [2, 1, 4, 3, 6, 5]", function() {
+      expect(algie_swapByPair([1, 2, 3, 4, 5, 6])).toEqual([2, 1, 4, 3, 6, 5]);
     });
   });
 
