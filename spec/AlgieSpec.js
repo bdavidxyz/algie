@@ -6,6 +6,30 @@ describe("Algie", function() {
     });
   });
 
+  describe("(difficulty 1) algie_ordinalSuffix", function() {
+    it("should return 'st' if given number ends with 1", function() {
+      expect(algie_ordinalSuffix(141)).toEqual('st');
+    });
+    it("should return 'nd' if given number ends with 2", function() {
+      expect(algie_ordinalSuffix(242)).toEqual('nd');
+    });
+    it("should return 'rd' if given number ends with 3", function() {
+      expect(algie_ordinalSuffix(7353)).toEqual('rd');
+    });
+    it("should return 'th' if given number ends with 4", function() {
+      expect(algie_ordinalSuffix(44)).toEqual('th');
+    });
+    it("should return 'th' if given number ends with 7", function() {
+      expect(algie_ordinalSuffix(5647)).toEqual('th');
+    });
+    it("should return 'th' if given number ends with 9", function() {
+      expect(algie_ordinalSuffix(9)).toEqual('th');
+    });
+    it("should return '' if given arg is not a number", function() {
+      expect(algie_ordinalSuffix(new Date())).toEqual('');
+    });
+  });
+
   describe("(difficulty 1) algie_reversedIndex", function() {
     it("should return the last element of array for index 0", function() {
       expect(algie_reversedIndex([1, 2, 3, 4], 0)).toEqual(4);
@@ -104,8 +128,6 @@ describe("Algie", function() {
     });
   });
 
-
-
   describe("(difficulty 2) algie_fewOf", function() {
     it("Should return true if some (but not all) values inside array are true", function() {
       expect(algie_fewOf([true, true, false])).toEqual(true);
@@ -133,15 +155,6 @@ describe("Algie", function() {
     });
     it("Should find the high number, the one before the maximum, in an array with numbers, other types and null values", function() {
       expect(algie_beforeMax([1, null, 4, new Date(), undefined, 23, 42, "55", 12])).toEqual(23);
-    });
-  });
-
-  describe("(difficulty 3) algie_toPropArray", function() {
-    it("transforms {a:11, b:42} into [{prop:'a', value:11}, {prop:'b', value:42}]", function() {
-      expect(algie_toPropArray({a:11, b:42})).toEqual([{prop:'a', value:11}, {prop:'b', value:42}]);
-    });
-    it("transforms {foo:'sth', bar:'z', me:'too'} into [{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]", function() {
-      expect(algie_toPropArray({foo:"sth", bar:"z", me:"too"})).toEqual([{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]);
     });
   });
 
@@ -250,24 +263,6 @@ describe("Algie", function() {
     });
   });
 
-  describe("(difficulty 2) algie_indexHash. It returns the element whose key is in nth position in the alphabetical order", function() {
-    it("Should return 22 with hash {a:11, b:22, c:33}, and index 1", function() {
-      expect(algie_indexHash({a:11, b:22, c:33}, 1)).toEqual(22);
-    });
-    it("Should return 33 with hash {d:44, f:66, e:55, a:11, b:22, c:33}, and index 2", function() {
-      expect(algie_indexHash({d:44, f:66, e:55, a:11, b:22, c:33}, 2)).toEqual(33);
-    });
-    it("Should return 'amend' with hash {foo: 'foo', amend:'amend'}, and index 0", function() {
-      expect(algie_indexHash({foo: 'foo', amend:'amend'}, 0)).toEqual("amend");
-    });
-    it("Should return 0 if hash is empty", function() {
-      expect(algie_indexHash({}, 4)).toEqual(0);
-    });
-    it("Should return 0 when no arg given", function() {
-      expect(algie_indexHash()).toEqual(0);
-    });
-  });
-
   describe("(difficulty 3) algie_stripCommonPath", function() {
     it("['/myDir/a.txt', '/myDir/b.txt', '/myDir/c.txt'] becomes ['/a.txt', '/b.txt', '/c.txt'] because /myDir is the common path", function() {
       expect(algie_stripCommonPath(['/myDir/a.txt', '/myDir/b.txt', '/myDir/c.txt'])).toEqual(['/a.txt', '/b.txt', '/c.txt']);
@@ -295,29 +290,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("(difficulty 1) algie_ordinalSuffix", function() {
-    it("should return 'st' if given number ends with 1", function() {
-      expect(algie_ordinalSuffix(141)).toEqual('st');
-    });
-    it("should return 'nd' if given number ends with 2", function() {
-      expect(algie_ordinalSuffix(242)).toEqual('nd');
-    });
-    it("should return 'rd' if given number ends with 3", function() {
-      expect(algie_ordinalSuffix(7353)).toEqual('rd');
-    });
-    it("should return 'th' if given number ends with 4", function() {
-      expect(algie_ordinalSuffix(44)).toEqual('th');
-    });
-    it("should return 'th' if given number ends with 7", function() {
-      expect(algie_ordinalSuffix(5647)).toEqual('th');
-    });
-    it("should return 'th' if given number ends with 9", function() {
-      expect(algie_ordinalSuffix(9)).toEqual('th');
-    });
-    it("should return '' if given arg is not a number", function() {
-      expect(algie_ordinalSuffix(new Date())).toEqual('');
-    });
-  });
+
 
   describe("(difficulty 2) algie_largestString", function() {
     it("returns the largest String in an array of String (example 1)", function() {
@@ -336,6 +309,25 @@ describe("Algie", function() {
       expect(algie_numbersAfter(42)).toEqual([43, 44, 45, 46, 47, 48]);
     });
   });
+
+  describe("(difficulty 2) algie_indexHash. It returns the element whose key is in nth position in the alphabetical order", function() {
+    it("Should return 22 with hash {a:11, b:22, c:33}, and index 1", function() {
+      expect(algie_indexHash({a:11, b:22, c:33}, 1)).toEqual(22);
+    });
+    it("Should return 33 with hash {d:44, f:66, e:55, a:11, b:22, c:33}, and index 2", function() {
+      expect(algie_indexHash({d:44, f:66, e:55, a:11, b:22, c:33}, 2)).toEqual(33);
+    });
+    it("Should return 'amend' with hash {foo: 'foo', amend:'amend'}, and index 0", function() {
+      expect(algie_indexHash({foo: 'foo', amend:'amend'}, 0)).toEqual("amend");
+    });
+    it("Should return 0 if hash is empty", function() {
+      expect(algie_indexHash({}, 4)).toEqual(0);
+    });
+    it("Should return 0 when no arg given", function() {
+      expect(algie_indexHash()).toEqual(0);
+    });
+  });
+
 
   describe("(difficulty 2) algie_dirtyString", function() {
     it("convert a badly formatted string in an array of ordered numbers without duplication (example 1)", function() {
@@ -411,6 +403,15 @@ describe("Algie", function() {
       expect(algie_fooBarQixZzz(0)).toEqual("zzz");
       expect(algie_fooBarQixZzz(null)).toEqual("zzz");
       expect(algie_fooBarQixZzz(7)).toEqual("zzz");
+    });
+  });
+
+  describe("(difficulty 3) algie_toPropArray", function() {
+    it("transforms {a:11, b:42} into [{prop:'a', value:11}, {prop:'b', value:42}]", function() {
+      expect(algie_toPropArray({a:11, b:42})).toEqual([{prop:'a', value:11}, {prop:'b', value:42}]);
+    });
+    it("transforms {foo:'sth', bar:'z', me:'too'} into [{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]", function() {
+      expect(algie_toPropArray({foo:"sth", bar:"z", me:"too"})).toEqual([{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]);
     });
   });
 
@@ -617,6 +618,7 @@ describe("Algie", function() {
       expect(algie_fireLangage("hello world")).toEqual("hefellofo woforld");
     });
   });
+
   describe('(difficulty 4) algie_actualMatches. Returns the number of elements that exactly match (i.e. same value same position), and the number of element that doesn\'t (ie value match, but not position)', function() {
     it('f([1, 2, 2, 1, 0], [1, 3, 3, 4, 5]) => "1 exact match and 0 incorrect match"', function() {
       expect(algie_actualMatches([1, 2, 2, 1, 0], [1, 3, 3, 4, 5])).toEqual("1 exact match and 0 incorrect match");
