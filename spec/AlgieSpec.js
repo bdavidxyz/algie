@@ -30,6 +30,25 @@ describe("Algie", function() {
     });
   });
 
+
+  describe("(difficulty 1) algie_isArrayOfString", function() {
+    it("should return true if there are only strings in a simple array", function() {
+      expect(algie_isArrayOfString(["a", "b", "c"])).toEqual(true);
+    });
+    it("should return true if there are only strings in a more complex array, with empty string and sentences", function() {
+      expect(algie_isArrayOfString(["la", "do", "re", "", "fa", "a sentence", "another sentence"])).toEqual(true);
+    });
+    it("should return true if it is an empty array", function() {
+      expect(algie_isArrayOfString([])).toEqual(true);
+    });
+    it("should return false if it is not an array", function() {
+      expect(algie_isArrayOfString(42)).toEqual(false);
+    });
+    it("should return false if it there is something else than a String in the array", function() {
+      expect(algie_isArrayOfString(["a", "b", 42, "c"])).toEqual(false);
+    });
+  });
+
   describe("(difficulty 1) algie_hideThat. Hides every char between first and last char.", function() {
     it("'hello' becomes 'h***o'", function() {
       expect(algie_hideThat('hello')).toEqual('h***o');
@@ -218,24 +237,6 @@ describe("Algie", function() {
     });
   });
 
-  describe("(difficulty 1) algie_isArrayOfString", function() {
-    it("should return true if there are only strings in a simple array", function() {
-      expect(algie_isArrayOfString(["a", "b", "c"])).toEqual(true);
-    });
-    it("should return true if there are only strings in a more complex array, with empty string and sentences", function() {
-      expect(algie_isArrayOfString(["la", "do", "re", "", "fa", "a sentence", "another sentence"])).toEqual(true);
-    });
-    it("should return true if it is an empty array", function() {
-      expect(algie_isArrayOfString([])).toEqual(true);
-    });
-    it("should return false if it is not an array", function() {
-      expect(algie_isArrayOfString(42)).toEqual(false);
-    });
-    it("should return false if it there is something else than a String in the array", function() {
-      expect(algie_isArrayOfString(["a", "b", 42, "c"])).toEqual(false);
-    });
-  });
-
   describe("(difficulty 2) algie_stringToHash", function() {
     it("should convert sentence 'hello abc' to hash {hello:{vowels:2, consonants:3}, abc:{vowels:1, consonants:2}}", function() {
       expect(algie_stringToHash('hello abc')).toEqual({hello:{vowels:2, consonants:3}, abc:{vowels:1, consonants:2}});
@@ -309,6 +310,48 @@ describe("Algie", function() {
     });
     it("returns false if the args are increasing", function() {
       expect(algie_isDecreasing(1, 2, 3, 4)).toEqual(false);
+    });
+  });
+
+  describe('(difficulty 2) algie_lastWillBeFirst. Invert first and last element of an array', function() {
+    it('f([1, 2, 3, 4]) => [4, 2, 3, 1]', function() {
+      expect(algie_lastWillBeFirst("[1, 2, 3, 4]")).toEqual("[4, 2, 3, 1]");
+    });
+    it('f([12, 45, 8, 22, 89]) => [89, 45, 8, 22, 12]', function() {
+      expect(algie_lastWillBeFirst("[12, 45, 8, 22, 89]")).toEqual("[89, 45, 8, 22, 12]");
+    });
+  });
+
+  describe('(difficulty 2) algie_simplifyWord. Returns first and last character of a string, and the number of character between.', function() {
+    it('f("accessibility") => "a11y"', function() {
+      expect(algie_simplifyWord("accessibility")).toEqual("a11y");
+    });
+    it('f("internationalization") => "i18n"', function() {
+      expect(algie_simplifyWord("internationalization")).toEqual("i18n");
+    });
+    it('f("aaa") => "a1a"', function() {
+      expect(algie_simplifyWord("aaa")).toEqual("a1a");
+    });
+  });
+
+  describe('(difficulty 2) algie_initials', function() {
+    it('f("hello world") => "HW"', function() {
+      expect(algie_initials("hello world")).toEqual("HW");
+    });
+    it('f("One great journey") => "OGJ"', function() {
+      expect(algie_simplifyWord("One great journey")).toEqual("OGJ");
+    });
+  });
+
+  describe('(difficulty 2) algie_printToZero', function() {
+    it('8 becomes "76543210"', function() {
+      expect(algie_printToZero(8)).toEqual(76543210);
+    });
+    it('5 becomes "43210"', function() {
+      expect(algie_printToZero(5)).toEqual(43210);
+    });
+    it('-12 becomes "-11-10-9-8-7-6-5-4-3-2-10"', function() {
+      expect(algie_printToZero(-12)).toEqual("-11-10-9-8-7-6-5-4-3-2-10");
     });
   });
 
@@ -395,48 +438,6 @@ describe("Algie", function() {
     });
     it("In the 2-dimensional array [['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']], the missing number is 8", function() {
       expect(algie_missingNumber([['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']])).toEqual(8);
-    });
-  });
-
-  describe('(difficulty 2) algie_lastWillBeFirst. Invert first and last element of an array', function() {
-    it('f([1, 2, 3, 4]) => [4, 2, 3, 1]', function() {
-      expect(algie_lastWillBeFirst("[1, 2, 3, 4]")).toEqual("[4, 2, 3, 1]");
-    });
-    it('f([12, 45, 8, 22, 89]) => [89, 45, 8, 22, 12]', function() {
-      expect(algie_lastWillBeFirst("[12, 45, 8, 22, 89]")).toEqual("[89, 45, 8, 22, 12]");
-    });
-  });
-
-  describe('(difficulty 2) algie_simplifyWord. Returns first and last character of a string, and the number of character between.', function() {
-    it('f("accessibility") => "a11y"', function() {
-      expect(algie_simplifyWord("accessibility")).toEqual("a11y");
-    });
-    it('f("internationalization") => "i18n"', function() {
-      expect(algie_simplifyWord("internationalization")).toEqual("i18n");
-    });
-    it('f("aaa") => "a1a"', function() {
-      expect(algie_simplifyWord("aaa")).toEqual("a1a");
-    });
-  });
-
-  describe('(difficulty 2) algie_initials', function() {
-    it('f("hello world") => "HW"', function() {
-      expect(algie_initials("hello world")).toEqual("HW");
-    });
-    it('f("One great journey") => "OGJ"', function() {
-      expect(algie_simplifyWord("One great journey")).toEqual("OGJ");
-    });
-  });
-
-  describe('(difficulty 2) algie_printToZero', function() {
-    it('8 becomes "76543210"', function() {
-      expect(algie_printToZero(8)).toEqual(76543210);
-    });
-    it('5 becomes "43210"', function() {
-      expect(algie_printToZero(5)).toEqual(43210);
-    });
-    it('-12 becomes "-11-10-9-8-7-6-5-4-3-2-10"', function() {
-      expect(algie_printToZero(-12)).toEqual("-11-10-9-8-7-6-5-4-3-2-10");
     });
   });
 
