@@ -449,30 +449,6 @@ describe("Algie", function() {
     });
   });
 
-  describe("(difficulty 3) algie_arrayWithSameValues", function() {
-    it("Should return true if given arrays are the same", function() {
-      expect(algie_arrayWithSameValues([1, 5, 2], [1, 5, 2])).toEqual(true);
-    });
-    it("Should return true if given arrays are the same, but with elements in different order (example with Integer)", function() {
-      expect(algie_arrayWithSameValues([1, 5, 2], [5, 2, 1])).toEqual(true);
-    });
-    it("Should return true if given arrays are the same, but with elements in different order (example with String)", function() {
-      expect(algie_arrayWithSameValues(["ef", "ab", "zz", "ty"], ["ty", "ab", "ef", "zz"])).toEqual(true);
-    });
-    it("Should return false if given arrays are not the same (easy example)", function() {
-      expect(algie_arrayWithSameValues([1, 5, 2], ["a", "b"])).toEqual(false);
-    });
-    it("Should return false if given arrays are not the same (tricky example)", function() {
-      expect(algie_arrayWithSameValues([1, 5, 2, null], [1, 5, 2, undefined])).toEqual(false);
-    });
-    it("Should return false if wrong types are given as parameter", function() {
-      expect(algie_arrayWithSameValues(/^/, /^/)).toEqual(false);
-    });
-    it("Should return false if no array are given", function() {
-      expect(algie_arrayWithSameValues()).toEqual(false);
-    });
-  });
-
   describe('(difficulty 2) algie_lastWillBeFirst. Invert first and last element of an array', function() {
     it('f([1, 2, 3, 4]) => [4, 2, 3, 1]', function() {
       expect(algie_lastWillBeFirst("[1, 2, 3, 4]")).toEqual("[4, 2, 3, 1]");
@@ -523,6 +499,30 @@ describe("Algie", function() {
     it('02.02.1997, 02.02.1998, 02.02.1999, 01.01.1999 => The 3rd Date is closest to 1st Jan. 2000', function() {
       var found_date = algie_closestOf2000([new Date('February 02, 1997 03:24:00'), new Date('February 02, 1998 03:24:00'), new Date('February 02, 1999 03:24:00'), new Date('January 01, 1999 03:24:00')]);
       expect(found_date.getTime()).toEqual(917922240000); // February 02, 1999 03:24:00
+    });
+  });
+
+  describe("(difficulty 3) algie_arrayWithSameValues", function() {
+    it("Should return true if given arrays are the same", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2], [1, 5, 2])).toEqual(true);
+    });
+    it("Should return true if given arrays are the same, but with elements in different order (example with Integer)", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2], [5, 2, 1])).toEqual(true);
+    });
+    it("Should return true if given arrays are the same, but with elements in different order (example with String)", function() {
+      expect(algie_arrayWithSameValues(["ef", "ab", "zz", "ty"], ["ty", "ab", "ef", "zz"])).toEqual(true);
+    });
+    it("Should return false if given arrays are not the same (easy example)", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2], ["a", "b"])).toEqual(false);
+    });
+    it("Should return false if given arrays are not the same (tricky example)", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2, null], [1, 5, 2, undefined])).toEqual(false);
+    });
+    it("Should return false if wrong types are given as parameter", function() {
+      expect(algie_arrayWithSameValues(/^/, /^/)).toEqual(false);
+    });
+    it("Should return false if no array are given", function() {
+      expect(algie_arrayWithSameValues()).toEqual(false);
     });
   });
 
@@ -646,6 +646,7 @@ describe("Algie", function() {
       expect(algie_sortByConsecutive("zacc")).toEqual("ccaz");
     });
   });
+
   describe("(difficulty 4) algie_cupsRepartition", function() {
     it("Should give each kid the same number of cups, for example 2 kids with 8 cups", function() {
       expect(algie_cupsRepartition([
