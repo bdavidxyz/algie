@@ -473,26 +473,6 @@ describe("Algie", function() {
     });
   });
 
-  describe('(difficulty 3) algie_resetAllKeysBut. Reset all keys of a hash, excerpt one', function() {
-    it('f({a:1, b:2, c:3}, "b", 0) should be {a:0, b:2, c:0}', function() {
-      expect(algie_resetAllKeysBut({a:1, b:2, c:3}, "b", 0)).toEqual({a:0, b:2, c:0});
-    });
-    it('f({foo:"yes", bar:"no", qix:"maybe", not: "not"}, "qix", "z") should be {foo:"z", bar:"z", qix:"maybe", not: "z"}', function() {
-      expect(algie_resetAllKeysBut({foo:"yes", bar:"no", qix:"maybe", not: "not"}, "qix", "z")).toEqual({foo:"z", bar:"z", qix:"maybe", not: "z"});
-    });
-    it('Should return empty object if first param is not a plain object', function() {
-      expect(algie_resetAllKeysBut([], "qix", "z")).toEqual({});
-    });
-    it('Should return empty object if second param is not a String', function() {
-      expect(algie_resetAllKeysBut({a:1, b:2, c:3}, 42, 0)).toEqual({});
-    });
-    it('Last param is optional', function() {
-      expect(algie_resetAllKeysBut({a:1, b:2, c:3}, "c")).toEqual({a:undefined, b:undefined, c:3});
-    });
-  });
-
-
-
   describe('(difficulty 2) algie_lastWillBeFirst. Invert first and last element of an array', function() {
     it('f([1, 2, 3, 4]) => [4, 2, 3, 1]', function() {
       expect(algie_lastWillBeFirst("[1, 2, 3, 4]")).toEqual("[4, 2, 3, 1]");
@@ -546,7 +526,23 @@ describe("Algie", function() {
     });
   });
 
- 
+  describe('(difficulty 3) algie_resetAllKeysBut. Reset all keys of a hash, excerpt one', function() {
+    it('f({a:1, b:2, c:3}, "b", 0) should be {a:0, b:2, c:0}', function() {
+      expect(algie_resetAllKeysBut({a:1, b:2, c:3}, "b", 0)).toEqual({a:0, b:2, c:0});
+    });
+    it('f({foo:"yes", bar:"no", qix:"maybe", not: "not"}, "qix", "z") should be {foo:"z", bar:"z", qix:"maybe", not: "z"}', function() {
+      expect(algie_resetAllKeysBut({foo:"yes", bar:"no", qix:"maybe", not: "not"}, "qix", "z")).toEqual({foo:"z", bar:"z", qix:"maybe", not: "z"});
+    });
+    it('Should return empty object if first param is not a plain object', function() {
+      expect(algie_resetAllKeysBut([], "qix", "z")).toEqual({});
+    });
+    it('Should return empty object if second param is not a String', function() {
+      expect(algie_resetAllKeysBut({a:1, b:2, c:3}, 42, 0)).toEqual({});
+    });
+    it('Last param is optional', function() {
+      expect(algie_resetAllKeysBut({a:1, b:2, c:3}, "c")).toEqual({a:undefined, b:undefined, c:3});
+    });
+  });
 
   describe('(difficulty 3) algie_add2Dates', function() {
     it('1st january 2000, added to 1st january 2000, gives 1st january 4000', function() {
