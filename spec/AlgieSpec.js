@@ -30,6 +30,24 @@ describe("Algie", function() {
     });
   });
 
+  describe("(difficulty 1) algie_hideThat. Hides every char between first and last char.", function() {
+    it("'hello' becomes 'h***o'", function() {
+      expect(algie_hideThat('hello')).toEqual('h***o');
+    });
+    it("'funk' becomes 'f**k'", function() {
+      expect(algie_hideThat('funk')).toEqual('f**k');
+    });
+    it("'a' becomes 'a'", function() {
+      expect(algie_hideThat('a')).toEqual('a');
+    });
+    it("should hide a regexp, /^ImARegExp/, becomes '/*********/'", function() {
+      expect(algie_hideThat(/^ImARegExp/)).toEqual('/*********/');
+    });
+    it("should hide a number, 4242, becomes '4**2'", function() {
+      expect(algie_hideThat(4242)).toEqual('4**2');
+    });
+  });
+
   describe("(difficulty 1) algie_reversedIndex", function() {
     it("should return the last element of array for index 0", function() {
       expect(algie_reversedIndex([1, 2, 3, 4], 0)).toEqual(4);
@@ -218,21 +236,6 @@ describe("Algie", function() {
     });
   });
 
-  describe("(difficulty 3) algie_maxOfConsecutiveInArray", function() {
-    it("should return 3 when there is 3 consecutive elements in array", function() {
-      expect(algie_maxOfConsecutiveInArray(["a", "a", "c", "c", "c", "z"])).toEqual(3);
-    });
-    it("should return 5 when there is 5 consecutive elements in array, with same element in multiple places", function() {
-      expect(algie_maxOfConsecutiveInArray(["a", "a", "c", "a", "a", "a", "a", "a"])).toEqual(5);
-    });
-    it("should return 4 when there is only the 4 same elements in array", function() {
-      expect(algie_maxOfConsecutiveInArray(["a", "a", "a", "a"])).toEqual(4);
-    });
-    it("should return 0 when array is empty", function() {
-      expect(algie_maxOfConsecutiveInArray([])).toEqual(4);
-    });
-  });
-
   describe("(difficulty 2) algie_stringToHash", function() {
     it("should convert sentence 'hello abc' to hash {hello:{vowels:2, consonants:3}, abc:{vowels:1, consonants:2}}", function() {
       expect(algie_stringToHash('hello abc')).toEqual({hello:{vowels:2, consonants:3}, abc:{vowels:1, consonants:2}});
@@ -241,35 +244,6 @@ describe("Algie", function() {
       expect(algie_stringToHash('uzero foo eh')).toEqual({uzero:{vowels:3, consonants:2}, foo:{vowels:2, consonants:1}, eh:{vowels:1, consonants:1}});
     });
   });
-
-  describe("(difficulty 3) algie_stripCommonPath", function() {
-    it("['/myDir/a.txt', '/myDir/b.txt', '/myDir/c.txt'] becomes ['/a.txt', '/b.txt', '/c.txt'] because /myDir is the common path", function() {
-      expect(algie_stripCommonPath(['/myDir/a.txt', '/myDir/b.txt', '/myDir/c.txt'])).toEqual(['/a.txt', '/b.txt', '/c.txt']);
-    });
-    it("['/www/workspace/zz.txt', '/www/user/zz.txt'] becomes ['/workspace/zz.txt', '/user/zz.txt'] because /www is the common path", function() {
-      expect(algie_stripCommonPath(['/www/workspace/zz.txt', '/www/user/zz.txt'])).toEqual(['/workspace/zz.txt', '/user/zz.txt']);
-    });
-  });
-
-  describe("(difficulty 1) algie_hideThat. Hides every char between first and last char.", function() {
-    it("'hello' becomes 'h***o'", function() {
-      expect(algie_hideThat('hello')).toEqual('h***o');
-    });
-    it("'funk' becomes 'f**k'", function() {
-      expect(algie_hideThat('funk')).toEqual('f**k');
-    });
-    it("'a' becomes 'a'", function() {
-      expect(algie_hideThat('a')).toEqual('a');
-    });
-    it("should hide a regexp, /^ImARegExp/, becomes '/*********/'", function() {
-      expect(algie_hideThat(/^ImARegExp/)).toEqual('/*********/');
-    });
-    it("should hide a number, 4242, becomes '4**2'", function() {
-      expect(algie_hideThat(4242)).toEqual('4**2');
-    });
-  });
-
-
 
   describe("(difficulty 2) algie_largestString", function() {
     it("returns the largest String in an array of String (example 1)", function() {
@@ -385,24 +359,21 @@ describe("Algie", function() {
     });
   });
 
+  describe("(difficulty 3) algie_stripCommonPath", function() {
+    it("['/myDir/a.txt', '/myDir/b.txt', '/myDir/c.txt'] becomes ['/a.txt', '/b.txt', '/c.txt'] because /myDir is the common path", function() {
+      expect(algie_stripCommonPath(['/myDir/a.txt', '/myDir/b.txt', '/myDir/c.txt'])).toEqual(['/a.txt', '/b.txt', '/c.txt']);
+    });
+    it("['/www/workspace/zz.txt', '/www/user/zz.txt'] becomes ['/workspace/zz.txt', '/user/zz.txt'] because /www is the common path", function() {
+      expect(algie_stripCommonPath(['/www/workspace/zz.txt', '/www/user/zz.txt'])).toEqual(['/workspace/zz.txt', '/user/zz.txt']);
+    });
+  });
+
   describe("(difficulty 3) algie_toPropArray", function() {
     it("transforms {a:11, b:42} into [{prop:'a', value:11}, {prop:'b', value:42}]", function() {
       expect(algie_toPropArray({a:11, b:42})).toEqual([{prop:'a', value:11}, {prop:'b', value:42}]);
     });
     it("transforms {foo:'sth', bar:'z', me:'too'} into [{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]", function() {
       expect(algie_toPropArray({foo:"sth", bar:"z", me:"too"})).toEqual([{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]);
-    });
-  });
-
-  describe('(difficulty 3) algie_occurencesOf', function() {
-    it('"aba" should be converted into {a:2, b:1}', function() {
-      expect(algie_occurencesOf("aba")).toEqual({a:2, b:1});
-    });
-    it('"hello" should be converted into {h:1, e:1, l:2, o:1}', function() {
-      expect(algie_occurencesOf("hello")).toEqual({h:1, e:1, l:2, o:1});
-    });
-    it('"Abba" should be converted into {a:2, b:2}', function() {
-      expect(algie_occurencesOf("Abba")).toEqual({a:2, b:2});
     });
   });
 
@@ -424,17 +395,6 @@ describe("Algie", function() {
     });
     it("In the 2-dimensional array [['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']], the missing number is 8", function() {
       expect(algie_missingNumber([['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']])).toEqual(8);
-    });
-  });
-
-  describe('(difficulty 3) algie_zodiac', function() {
-    it('13th of march is pisces', function() {
-      var date = new Date('March 13, 1995 03:24:00');
-      expect(algie_zodiac(date)).toEqual("pisces");
-    });
-    it('15th of august is lion', function() {
-      var date = new Date('August 15, 1995 03:24:00');
-      expect(algie_zodiac(date)).toEqual("lion");
     });
   });
 
@@ -533,6 +493,29 @@ describe("Algie", function() {
     });
   });
 
+  describe('(difficulty 3) algie_zodiac', function() {
+    it('13th of march is pisces', function() {
+      var date = new Date('March 13, 1995 03:24:00');
+      expect(algie_zodiac(date)).toEqual("pisces");
+    });
+    it('15th of august is lion', function() {
+      var date = new Date('August 15, 1995 03:24:00');
+      expect(algie_zodiac(date)).toEqual("lion");
+    });
+  });
+
+  describe('(difficulty 3) algie_occurencesOf', function() {
+    it('"aba" should be converted into {a:2, b:1}', function() {
+      expect(algie_occurencesOf("aba")).toEqual({a:2, b:1});
+    });
+    it('"hello" should be converted into {h:1, e:1, l:2, o:1}', function() {
+      expect(algie_occurencesOf("hello")).toEqual({h:1, e:1, l:2, o:1});
+    });
+    it('"Abba" should be converted into {a:2, b:2}', function() {
+      expect(algie_occurencesOf("Abba")).toEqual({a:2, b:2});
+    });
+  });
+
   describe("(difficulty 3) algie_swapByPair", function() {
     it("['a', 'b'] becomes ['b', 'a']", function() {
       expect(algie_swapByPair(['a', 'b'])).toEqual(['b', 'a']);
@@ -604,6 +587,21 @@ describe("Algie", function() {
     });
     it("[5] becomes [false, false, false, false, false, true]", function() {
       expect(algie_arrayOfBoolean([5])).toEqual([false, false, false, false, false, true]);
+    });
+  });
+
+  describe("(difficulty 3) algie_maxOfConsecutiveInArray", function() {
+    it("should return 3 when there is 3 consecutive elements in array", function() {
+      expect(algie_maxOfConsecutiveInArray(["a", "a", "c", "c", "c", "z"])).toEqual(3);
+    });
+    it("should return 5 when there is 5 consecutive elements in array, with same element in multiple places", function() {
+      expect(algie_maxOfConsecutiveInArray(["a", "a", "c", "a", "a", "a", "a", "a"])).toEqual(5);
+    });
+    it("should return 4 when there is only the 4 same elements in array", function() {
+      expect(algie_maxOfConsecutiveInArray(["a", "a", "a", "a"])).toEqual(4);
+    });
+    it("should return 0 when array is empty", function() {
+      expect(algie_maxOfConsecutiveInArray([])).toEqual(4);
     });
   });
 
