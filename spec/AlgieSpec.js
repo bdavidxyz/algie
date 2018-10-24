@@ -6,37 +6,6 @@ describe("Algie", function() {
     });
   });
 
-
-  describe("(difficulty 2) algie_camelCaseToSentence", function() {
-    it("should convert 'GlobalWarning' into 'global warning'", function() {
-      expect(algie_camelCaseToSentence('GlobalWarning')).toEqual('global warning');
-    });
-    it("should convert 'YouAreAnIncredibleDude' into 'i am an incredible dude'", function() {
-      expect(algie_camelCaseToSentence('YouAreAnIncredibleDude')).toEqual('you are an incredible dude');
-    });
-  });
-
-  describe("(difficulty 1) algie_allMultiplyBy", function() {
-    it("should convert [1, 2, 3] into [2, 4, 6] when all elements are multiplied by 2", function() {
-      expect(algie_allMultiplyBy([1, 2, 3], 2)).toEqual([2, 4, 6]);
-    });
-    it("should convert [3, 7, 9, 11] into [9, 21, 27, 33] when all elements are multiplied by 3", function() {
-      expect(algie_allMultiplyBy([3, 7, 9, 11], 3)).toEqual([9, 21, 27, 33]);
-    });
-  });
-
-  describe("(difficulty 2) algie_multiplyEach", function() {
-    it("[1, 2, 3] multiplied by [1, 2, 3] gives [1, 4, 9]", function() {
-      expect(algie_multiplyEach([1, 2, 3], [1, 2, 3])).toEqual([1, 4, 9]);
-    });
-    it("[2, 2, 2] multiplied by [1, 2, 3] gives [2, 4, 6]", function() {
-      expect(algie_multiplyEach([2, 2, 2], [1, 2, 3])).toEqual([2, 4, 6]);
-    });
-    it("[9, 41] multiplied by [6, 76] gives [54, 3116]", function() {
-      expect(algie_multiplyEach([9, 41], [6, 76])).toEqual([54, 3116]);
-    });
-  });
-
   describe("(difficulty 1) algie_reversedIndex", function() {
     it("should return the last element of array for index 0", function() {
       expect(algie_reversedIndex([1, 2, 3, 4], 0)).toEqual(4);
@@ -49,6 +18,61 @@ describe("Algie", function() {
       expect(algie_reversedIndex(array, array.length - 1)).toEqual(3);
     });
   });
+
+  describe("(difficulty 1) algie_noneOf", function() {
+    it("Should return true if all values inside array are false", function() {
+      expect(algie_noneOf([false, false, false])).toEqual(true);
+    });
+    it("Should return false if one value is true", function() {
+      expect(algie_noneOf([false, false, true])).toEqual(false);
+    });
+    it("Should return true if all values inside array are falsy", function() {
+      expect(algie_noneOf([undefined, null, false, 0])).toEqual(true);
+    });
+    it("Should return false if one value is truthy", function() {
+      expect(algie_noneOf([false, false, "a string", 0, undefined, null])).toEqual(false);
+    });
+    it("Should return false if multiple values are truthy", function() {
+      expect(algie_noneOf([false, false, "a string", 0, undefined, 42])).toEqual(false);
+    });
+    it("Should return false if all values are true", function() {
+      expect(algie_noneOf([true, true, true, true, true])).toEqual(false);
+    });
+    it("Should return true if array is empty", function() {
+      expect(algie_noneOf([])).toEqual(true);
+    });
+  });
+
+  describe("(difficulty 1) algie_allMultiplyBy", function() {
+    it("should convert [1, 2, 3] into [2, 4, 6] when all elements are multiplied by 2", function() {
+      expect(algie_allMultiplyBy([1, 2, 3], 2)).toEqual([2, 4, 6]);
+    });
+    it("should convert [3, 7, 9, 11] into [9, 21, 27, 33] when all elements are multiplied by 3", function() {
+      expect(algie_allMultiplyBy([3, 7, 9, 11], 3)).toEqual([9, 21, 27, 33]);
+    });
+  });
+
+  describe("(difficulty 1) algie_multiplyEach", function() {
+    it("[1, 2, 3] multiplied by [1, 2, 3] gives [1, 4, 9]", function() {
+      expect(algie_multiplyEach([1, 2, 3], [1, 2, 3])).toEqual([1, 4, 9]);
+    });
+    it("[2, 2, 2] multiplied by [1, 2, 3] gives [2, 4, 6]", function() {
+      expect(algie_multiplyEach([2, 2, 2], [1, 2, 3])).toEqual([2, 4, 6]);
+    });
+    it("[9, 41] multiplied by [6, 76] gives [54, 3116]", function() {
+      expect(algie_multiplyEach([9, 41], [6, 76])).toEqual([54, 3116]);
+    });
+  });
+
+  describe("(difficulty 2) algie_camelCaseToSentence", function() {
+    it("should convert 'GlobalWarning' into 'global warning'", function() {
+      expect(algie_camelCaseToSentence('GlobalWarning')).toEqual('global warning');
+    });
+    it("should convert 'YouAreAnIncredibleDude' into 'i am an incredible dude'", function() {
+      expect(algie_camelCaseToSentence('YouAreAnIncredibleDude')).toEqual('you are an incredible dude');
+    });
+  });
+
 
   describe("(difficulty 2) algie_completeWith. Complete array until given size, with given constant", function() {
     it("For example, [1, 2, 3] must have a size of 5. If not, complete with 42. Therefore, the final result should be [1, 2, 3, 42, 42]", function() {
@@ -80,29 +104,7 @@ describe("Algie", function() {
     });
   });
 
-  describe("(difficulty 1) algie_noneOf", function() {
-    it("Should return true if all values inside array are false", function() {
-      expect(algie_noneOf([false, false, false])).toEqual(true);
-    });
-    it("Should return false if one value is true", function() {
-      expect(algie_noneOf([false, false, true])).toEqual(false);
-    });
-    it("Should return true if all values inside array are falsy", function() {
-      expect(algie_noneOf([undefined, null, false, 0])).toEqual(true);
-    });
-    it("Should return false if one value is truthy", function() {
-      expect(algie_noneOf([false, false, "a string", 0, undefined, null])).toEqual(false);
-    });
-    it("Should return false if multiple values are truthy", function() {
-      expect(algie_noneOf([false, false, "a string", 0, undefined, 42])).toEqual(false);
-    });
-    it("Should return false if all values are true", function() {
-      expect(algie_noneOf([true, true, true, true, true])).toEqual(false);
-    });
-    it("Should return true if array is empty", function() {
-      expect(algie_noneOf([])).toEqual(true);
-    });
-  });
+
 
   describe("(difficulty 2) algie_fewOf", function() {
     it("Should return true if some (but not all) values inside array are true", function() {
