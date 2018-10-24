@@ -124,33 +124,6 @@ describe("Algie", function() {
     });
   });
 
-
-
-
-  describe("(difficulty 3) algie_arrayWithSameValues", function() {
-    it("Should return true if given arrays are the same", function() {
-      expect(algie_arrayWithSameValues([1, 5, 2], [1, 5, 2])).toEqual(true);
-    });
-    it("Should return true if given arrays are the same, but with elements in different order (example with Integer)", function() {
-      expect(algie_arrayWithSameValues([1, 5, 2], [5, 2, 1])).toEqual(true);
-    });
-    it("Should return true if given arrays are the same, but with elements in different order (example with String)", function() {
-      expect(algie_arrayWithSameValues(["ef", "ab", "zz", "ty"], ["ty", "ab", "ef", "zz"])).toEqual(true);
-    });
-    it("Should return false if given arrays are not the same (easy example)", function() {
-      expect(algie_arrayWithSameValues([1, 5, 2], ["a", "b"])).toEqual(false);
-    });
-    it("Should return false if given arrays are not the same (tricky example)", function() {
-      expect(algie_arrayWithSameValues([1, 5, 2, null], [1, 5, 2, undefined])).toEqual(false);
-    });
-    it("Should return false if wrong types are given as parameter", function() {
-      expect(algie_arrayWithSameValues(/^/, /^/)).toEqual(false);
-    });
-    it("Should return false if no array are given", function() {
-      expect(algie_arrayWithSameValues()).toEqual(false);
-    });
-  });
-
   describe("(difficulty 2) algie_beforeMax", function() {
     it("Should find a high number, the one before the maximum, in an array with numbers", function() {
       expect(algie_beforeMax([1, 5, 4, 3, 65, 23, 42, 55, 12])).toEqual(55);
@@ -418,6 +391,21 @@ describe("Algie", function() {
     });
   });
 
+  describe('(difficulty 2) algie_niceDraw', function() {
+    it('f("*", "-", 2) => "*-"', function() {
+      expect(algie_niceDraw("*", "-", 2)).toEqual("*-");
+    });
+    it('f("*", "-", 4) => "*-*-"', function() {
+      expect(algie_niceDraw("*", "-", 4)).toEqual("*-*-");
+    });
+    it('f("o", "a", 3) => "oao"', function() {
+      expect(algie_niceDraw("o", "a", 3)).toEqual("oao");
+    });
+    it('f("o", "b", "a", 6) => "obaoba"', function() {
+      expect(algie_niceDraw("o", "b", "a", 6)).toEqual("obaoba");
+    });
+  });
+
   describe('(difficulty 2) algie_fooBarQixZzz. Returns "foo" if number can be divided by 3, "bar" by 5, "qix" by 15, "zzz" in every other case', function() {
     it('should return "foo" for 3 or 9', function() {
       expect(algie_fooBarQixZzz(3)).toEqual("foo");
@@ -461,6 +449,30 @@ describe("Algie", function() {
     });
   });
 
+  describe("(difficulty 3) algie_arrayWithSameValues", function() {
+    it("Should return true if given arrays are the same", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2], [1, 5, 2])).toEqual(true);
+    });
+    it("Should return true if given arrays are the same, but with elements in different order (example with Integer)", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2], [5, 2, 1])).toEqual(true);
+    });
+    it("Should return true if given arrays are the same, but with elements in different order (example with String)", function() {
+      expect(algie_arrayWithSameValues(["ef", "ab", "zz", "ty"], ["ty", "ab", "ef", "zz"])).toEqual(true);
+    });
+    it("Should return false if given arrays are not the same (easy example)", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2], ["a", "b"])).toEqual(false);
+    });
+    it("Should return false if given arrays are not the same (tricky example)", function() {
+      expect(algie_arrayWithSameValues([1, 5, 2, null], [1, 5, 2, undefined])).toEqual(false);
+    });
+    it("Should return false if wrong types are given as parameter", function() {
+      expect(algie_arrayWithSameValues(/^/, /^/)).toEqual(false);
+    });
+    it("Should return false if no array are given", function() {
+      expect(algie_arrayWithSameValues()).toEqual(false);
+    });
+  });
+
   describe('(difficulty 3) algie_resetAllKeysBut. Reset all keys of a hash, excerpt one', function() {
     it('f({a:1, b:2, c:3}, "b", 0) should be {a:0, b:2, c:0}', function() {
       expect(algie_resetAllKeysBut({a:1, b:2, c:3}, "b", 0)).toEqual({a:0, b:2, c:0});
@@ -476,21 +488,6 @@ describe("Algie", function() {
     });
     it('Last param is optional', function() {
       expect(algie_resetAllKeysBut({a:1, b:2, c:3}, "c")).toEqual({a:undefined, b:undefined, c:3});
-    });
-  });
-
-  describe('(difficulty 2) algie_niceDraw', function() {
-    it('f("*", "-", 2) => "*-"', function() {
-      expect(algie_niceDraw("*", "-", 2)).toEqual("*-");
-    });
-    it('f("*", "-", 4) => "*-*-"', function() {
-      expect(algie_niceDraw("*", "-", 4)).toEqual("*-*-");
-    });
-    it('f("o", "a", 3) => "oao"', function() {
-      expect(algie_niceDraw("o", "a", 3)).toEqual("oao");
-    });
-    it('f("o", "b", "a", 6) => "obaoba"', function() {
-      expect(algie_niceDraw("o", "b", "a", 6)).toEqual("obaoba");
     });
   });
 
