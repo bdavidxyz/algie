@@ -30,7 +30,7 @@ describe("Algie", function() {
       expect(algie_multiplyEach([1, 2, 3], [1, 2, 3])).toEqual([1, 4, 9]);
     });
     it("[2, 2, 2] multiplied by [1, 2, 3] gives [2, 4, 6]", function() {
-      expect(algie_multiplyEach([2, 2, 2], [2, 4, 6])).toEqual([2, 4, 6]);
+      expect(algie_multiplyEach([2, 2, 2], [1, 2, 3])).toEqual([2, 4, 6]);
     });
     it("[9, 41] multiplied by [6, 76] gives [54, 3116]", function() {
       expect(algie_multiplyEach([9, 41], [6, 76])).toEqual([54, 3116]);
@@ -151,8 +151,8 @@ describe("Algie", function() {
           {name: "alf", cups:4},
           {name: "ben", cups:2}
         ])).toEqual([
-          {name: "alf", cups:4},
           {name: "cod", cups:3},
+          {name: "alf", cups:4},
           {name: "ben", cups:4}
         ]);
     });
