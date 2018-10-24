@@ -158,27 +158,6 @@ describe("Algie", function() {
     });
   });
 
-  describe("(difficulty 3) algie_fromPropArray", function() {
-    it("transforms [{prop:'a', value:'11'}, {prop:'b', value:'42'}] into {a:11, b:42}", function() {
-      expect(algie_fromPropArray([{prop:'a', value:'11'}, {prop:'b', value:'42'}])).toEqual({a:11, b:42});
-    });
-    it("transforms {foo:'sth', bar:'z', me:'too'} into [{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]", function() {
-      expect(algie_fromPropArray({foo:"sth", bar:"z", me:"too"})).toEqual([{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]);
-    });
-  });
-
-  describe("(difficulty 3) algie_missingNumber", function() {
-    it("In the 2-dimensional array [['-1', '-2', '1'], [], ['2']], the missing number is 0", function() {
-      expect(algie_missingNumber([['-1', '-2', '1'], [], ['2']])).toEqual(0);
-    });
-    it("In the 2-dimensional array [['0', '-1','1', '2', null, '4'], ['3', '6']], the missing number is 5", function() {
-      expect(algie_missingNumber([['0', '-1', '1', '2', null, '4'], ['3', '6']])).toEqual(5);
-    });
-    it("In the 2-dimensional array [['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']], the missing number is 8", function() {
-      expect(algie_missingNumber([['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']])).toEqual(8);
-    });
-  });
-
   describe("(difficulty 2) algie_generateWord", function() {
     it("A call to the function generate a word, size 6", function() {
       expect(algie_generateWord().length).toEqual(6);
@@ -424,6 +403,27 @@ describe("Algie", function() {
     });
     it('"Abba" should be converted into {a:2, b:2}', function() {
       expect(algie_occurencesOf("Abba")).toEqual({a:2, b:2});
+    });
+  });
+
+  describe("(difficulty 3) algie_fromPropArray", function() {
+    it("transforms [{prop:'a', value:'11'}, {prop:'b', value:'42'}] into {a:11, b:42}", function() {
+      expect(algie_fromPropArray([{prop:'a', value:'11'}, {prop:'b', value:'42'}])).toEqual({a:11, b:42});
+    });
+    it("transforms {foo:'sth', bar:'z', me:'too'} into [{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]", function() {
+      expect(algie_fromPropArray({foo:"sth", bar:"z", me:"too"})).toEqual([{prop:'foo', value:'sth'}, {prop:'bar', value:'z'}, {prop:'me', value:'too'}]);
+    });
+  });
+
+  describe("(difficulty 3) algie_missingNumber", function() {
+    it("In the 2-dimensional array [['-1', '-2', '1'], [], ['2']], the missing number is 0", function() {
+      expect(algie_missingNumber([['-1', '-2', '1'], [], ['2']])).toEqual(0);
+    });
+    it("In the 2-dimensional array [['0', '-1','1', '2', null, '4'], ['3', '6']], the missing number is 5", function() {
+      expect(algie_missingNumber([['0', '-1', '1', '2', null, '4'], ['3', '6']])).toEqual(5);
+    });
+    it("In the 2-dimensional array [['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']], the missing number is 8", function() {
+      expect(algie_missingNumber([['9', null, '7', '6'], [null, '5', '4', '3', '1', '2']])).toEqual(8);
     });
   });
 
