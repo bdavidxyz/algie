@@ -638,13 +638,25 @@ describe("Algie", function() {
       expect(algie_robustArray(new Date())).toEqual(false);
     });
     it('Returns true for an array with 17,9,4.1,2,1.01 - floats are ok', function() {
-      expect(algie_robustArray([17,9,4.1,2,1.01])).toEqual(true);
+      expect(algie_robustArray([17, 9, 4.1, 2, 1.01])).toEqual(true);
     });
     it('Returns true for an empty array', function() {
       expect(algie_robustArray([])).toEqual(true);
     });
     it('Returns true for an array with one element', function() {
       expect(algie_robustArray([23])).toEqual(true);
+    });
+    it('Returns true for an array with two element, whose first element is greater, for ex. 54 and 21', function() {
+      expect(algie_robustArray([54, 21])).toEqual(true);
+    });
+    it('Returns false for an array with two element, whose last element is greater, for ex. 19 and 89', function() {
+      expect(algie_robustArray([19, 89])).toEqual(false);
+    });
+    it('Returns false for an array with two same elements, for ex. 34 and 34', function() {
+      expect(algie_robustArray([34, 34])).toEqual(false);
+    });
+    it('Returns false for an array with three same elements, for ex. 56, 56, 56', function() {
+      expect(algie_robustArray([56, 56, 56])).toEqual(false);
     });
   });
 
