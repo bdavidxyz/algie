@@ -711,6 +711,24 @@ describe("Algie", function() {
     });
   });
 
+  describe('(difficulty 4) algie_uniqAnagrams. Find the number of anagrams that are a palindrom for a given String', function() {
+    it('should return 0 for empty String', function() {
+      expect(algie_uniqAnagrams("")).toEqual(0);
+    });
+    it('should return 0 for unexpected argument', function() {
+      expect(algie_uniqAnagrams(new Date())).toEqual(0);
+    });
+    it('should return 1 for "a"', function() {
+      expect(algie_uniqAnagrams("a")).toEqual(1);
+    });
+    it('should return 2 for "abba"', function() {
+      expect(algie_uniqAnagrams("abba")).toEqual(2);
+    });
+    it('should return 6 for "okayako"', function() {
+      expect(algie_uniqAnagrams("okayako")).toEqual(6);
+    });
+  });
+
   describe("(difficulty 4) algie_cupsRepartition", function() {
     it("Should give each kid the same number of cups, for example 2 kids with 8 cups", function() {
       expect(algie_cupsRepartition([

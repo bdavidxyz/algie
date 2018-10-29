@@ -15,7 +15,7 @@ describe("For experienced developers only", function() {
     });
   });
 
-  describe('algie_uniqAnagrams. Find the number of unique anagram(s) for a given String', function() {
+  describe('algie_uniqAnagrams. Find the number of anagrams that are a palindrom for a given String', function() {
     it('should return 0 for empty String', function() {
       expect(algie_uniqAnagrams("")).toEqual(0);
     });
