@@ -618,6 +618,12 @@ describe("Algie", function() {
     });
   });
 
+  describe('(difficulty 3) algie_robustArray. The function returns true only each element of the given array, is greater than the sum of the remaining elements', function() {
+    it('Returns true for an empty array', function() {
+      expect(algie_robustArray([])).toEqual(true);
+    });
+  });
+
   describe('(difficulty 4) algie_actualMatches. Returns the number of elements that exactly match (i.e. same value same position), and the number of element that doesn\'t (ie value match, but not position)', function() {
     it('f([1, 2, 2, 1, 0], [1, 3, 3, 4, 5]) => "1 exact match and 0 incorrect match"', function() {
       expect(algie_actualMatches([1, 2, 2, 1, 0], [1, 3, 3, 4, 5])).toEqual("1 exact match and 0 incorrect match");
@@ -645,6 +651,21 @@ describe("Algie", function() {
     });
     it('f("zacc") => "acz"', function() {
       expect(algie_sortByConsecutive("zacc")).toEqual("ccaz");
+    });
+  });
+
+  describe('(difficulty 4) algie_roll2SameDices(nbOfFaces). Returns an object where keys are sum of 2 dices, and values the probability (a float, as percentage) of the key to occur.', function() {
+    it('For 2 dices with 2 faces, shoud return {2: 25, 3: 50, 4: 25} ', function() {
+      expect(algie_roll2SameDices(2)).toEqual({2: 25, 3: 50, 4: 25});
+    });
+    it('For 2 dices with 3 faces, shoud return {2: 11.11, 3: 22.22, 4: 33.33, 5: 22.22, 6: 11.11} ', function() {
+      expect(algie_roll2SameDices(3)).toEqual({2: 11.11, 3: 22.22, 4: 33.33, 5: 22.22, 6: 11.11});
+    });
+    it('For 2 dices with 6 faces, shoud return {2: 2.78, 3: 5.56, 4: 8.33, 5: 11.11, 6: 13.89, 7: 16.67, 8: 13.89, 9: 11.11, 10: 8.33, 11: 5.56, 12: 2.78}', function() {
+      expect(algie_roll2SameDices(6)).toEqual({2: 2.78, 3: 5.56, 4: 8.33, 5: 11.11, 6: 13.89, 7: 16.67, 8: 13.89, 9: 11.11, 10: 8.33, 11: 5.56, 12: 2.78});
+    });
+    it('For a wrong input, return an empty object', function() {
+      expect(algie_roll2SameDices(new Date())).toEqual({});
     });
   });
 
