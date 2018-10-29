@@ -11,6 +11,4 @@ function algie_generateWord() {
   // return "zaropi"
 }
 
-function algie_roll2SameDices(nb_of_faces) {
-  
-}
+

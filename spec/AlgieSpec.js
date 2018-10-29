@@ -637,8 +637,14 @@ describe("Algie", function() {
     it('Returns false for a wrong type (a Date is given instead of an array)', function() {
       expect(algie_robustArray(new Date())).toEqual(false);
     });
-    it('Returns true for an array with 17,9,4.1,2,1.01 - floats are ok', function() {
+    it('Returns true for an array with 17, 9, 4.1, 2, 1.01 - floats are ok', function() {
       expect(algie_robustArray([17, 9, 4.1, 2, 1.01])).toEqual(true);
+    });
+    it('Returns true for an array with 21, 8, 3, 2, 0, -4, -45 (negatives are ok)', function() {
+      expect(algie_robustArray([21, 8, 3, 2, 0, -4, -45])).toEqual(true);
+    });
+    it('Returns false for an array with 21, 8, 3, -2, 2', function() {
+      expect(algie_robustArray([21, 8, 3, -2, 2])).toEqual(false);
     });
     it('Returns true for an empty array', function() {
       expect(algie_robustArray([])).toEqual(true);
