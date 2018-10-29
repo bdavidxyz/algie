@@ -619,8 +619,32 @@ describe("Algie", function() {
   });
 
   describe('(difficulty 3) algie_robustArray. The function returns true only each element of the given array, is greater than the sum of the remaining elements', function() {
+    it('Returns true for an array with 7, 3, 2 (because 7 is greater than 3+2, and 3 is greater than 2)', function() {
+      expect(algie_robustArray([7, 3, 2])).toEqual(true);
+    });
+    it('Returns false for an array with 4, 3, 2 (because 4 is not greater than 3+2)', function() {
+      expect(algie_robustArray([4, 3, 2])).toEqual(false);
+    });
+    it('Returns true for an array with 17, 9, 4, 2, 1', function() {
+      expect(algie_robustArray([17, 9, 4, 2, 1])).toEqual(true);
+    });
+    it('Returns false for an array with 1, 2, 4, 9, 17 - increasing suit cannot work', function() {
+      expect(algie_robustArray([1, 2, 4, 9, 17])).toEqual(false);
+    });
+    it('Returns false for an array with 17, 9, "4.1", 2, 1.01 - wrong type inside array not permitted', function() {
+      expect(algie_robustArray([17, 9, "4.1", 2, 1.01])).toEqual(false);
+    });
+    it('Returns false for a wrong type (a Date is given instead of an array)', function() {
+      expect(algie_robustArray(new Date())).toEqual(false);
+    });
+    it('Returns true for an array with 17,9,4.1,2,1.01 - floats are ok', function() {
+      expect(algie_robustArray([17,9,4.1,2,1.01])).toEqual(true);
+    });
     it('Returns true for an empty array', function() {
       expect(algie_robustArray([])).toEqual(true);
+    });
+    it('Returns true for an array with one element', function() {
+      expect(algie_robustArray([23])).toEqual(true);
     });
   });
 
