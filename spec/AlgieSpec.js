@@ -703,17 +703,23 @@ describe("Algie", function() {
   });
 
   describe('(difficulty 4) algie_stringWeight. Returns the sum of each letter in a sentence. "a" is 1, "b" is 2, etc.', function() {
-    it('Should return 3 for String "ab"', function() {
-      expect(algie_stringWeight("ab")).toEqual(3);
+    it('Should return 6 for String "abc", because "a" has a weight of 1, "b" a weight of 2, and "c" a weight of 3. Sum of 1, 2, 3 is 6', function() {
+      expect(algie_stringWeight("abc")).toEqual(6);
     });
-    it('Should return 3 for String "a b", because spaces count as 0', function() {
-      expect(algie_stringWeight("a b")).toEqual(3);
+    it('Should return 6 for String "a b c", because spaces count as 0', function() {
+      expect(algie_stringWeight("a b c")).toEqual(6);
     });
-    it('Should return 3 for String "A B", because uppercase is same weight as lowercase', function() {
-      expect(algie_stringWeight("A B")).toEqual(3);
+    it('Should return 6 for String "A B c", because uppercase is same weight as lowercase', function() {
+      expect(algie_stringWeight("A B c")).toEqual(6);
     });
-    it('Should return 3 for String "â B", because a letter with an accent is same weight as without accent.', function() {
-      expect(algie_stringWeight("â B")).toEqual(3);
+    it('Should return 6 for String "â B c", because a letter with an accent is same weight as without accent.', function() {
+      expect(algie_stringWeight("â B c")).toEqual(6);
+    });
+    it('Should return 6 for String "â8B9c", because numbers do not count', function() {
+      expect(algie_stringWeight("â8B9c")).toEqual(6);
+    });
+    it('Should return 124 for String "Hello Wörld 3"', function() {
+      expect(algie_stringWeight("Hello Wörld 3")).toEqual(124);
     });
     it('Should return 0 for unexpected type (a regexp for example)', function() {
       expect(algie_stringWeight(/^/)).toEqual(0);
