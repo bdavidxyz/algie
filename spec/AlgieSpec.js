@@ -691,8 +691,32 @@ describe("Algie", function() {
     it('f("zac") => "acz"', function() {
       expect(algie_sortByConsecutive("zac")).toEqual("acz");
     });
-    it('f("zacc") => "acz"', function() {
+    it('f("zacc") => "ccaz"', function() {
       expect(algie_sortByConsecutive("zacc")).toEqual("ccaz");
+    });
+  });
+
+  describe('(difficulty 4) algie_sortByThenBy.', function() {
+    it('Should sort by status first, if equal, should sort by salary, if equal, should sort by name', function() {
+      expect(algie_sortByThenBy()).toEqual();
+    });
+  });
+
+  describe('(difficulty 4) algie_stringWeight. Returns the sum of each letter in a sentence. "a" is 1, "b" is 2, etc.', function() {
+    it('Should return 3 for String "ab"', function() {
+      expect(algie_stringWeight("ab")).toEqual(3);
+    });
+    it('Should return 3 for String "a b", because spaces count as 0', function() {
+      expect(algie_stringWeight("a b")).toEqual(3);
+    });
+    it('Should return 3 for String "A B", because uppercase is same weight as lowercase', function() {
+      expect(algie_stringWeight("A B")).toEqual(3);
+    });
+    it('Should return 3 for String "â B", because a letter with an accent is same weight as without accent.', function() {
+      expect(algie_stringWeight("â B")).toEqual(3);
+    });
+    it('Should return 0 for unexpected type (a regexp for example)', function() {
+      expect(algie_stringWeight(/^/)).toEqual(0);
     });
   });
 
